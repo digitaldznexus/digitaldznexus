@@ -10,7 +10,7 @@ export function ServicesSection() {
       title: t('services.websiteCreation.title'),
       description: t('services.websiteCreation.description'),
       price: t('services.websiteCreation.price'),
-      gradient: 'from-blue-600 to-green-500',
+      gradient: 'from-purple-600 to-blue-500',
       href: '#pricing'
     },
     {
@@ -18,7 +18,7 @@ export function ServicesSection() {
       title: t('services.whatsappTraining.title'),
       description: t('services.whatsappTraining.description'),
       status: t('services.whatsappTraining.status'),
-      gradient: 'from-green-500 to-blue-600',
+      gradient: 'from-blue-500 to-orange-500',
       href: '#contact'
     },
     {
@@ -26,7 +26,7 @@ export function ServicesSection() {
       title: t('services.branding.title'),
       description: t('services.branding.description'),
       status: t('services.branding.status'),
-      gradient: 'from-blue-600 to-green-500',
+      gradient: 'from-orange-500 to-purple-600',
       href: '#contact'
     },
     {
@@ -34,7 +34,7 @@ export function ServicesSection() {
       title: 'SEO & Marketing Digital',
       description: 'Optimisation pour les moteurs de recherche et stratégies marketing pour booster votre visibilité.',
       price: 'Sur devis',
-      gradient: 'from-green-500 to-blue-600',
+      gradient: 'from-purple-500 to-orange-500',
       href: '#contact'
     },
     {
@@ -42,7 +42,7 @@ export function ServicesSection() {
       title: 'Maintenance & Support',
       description: 'Support technique continu, mises à jour et maintenance préventive pour votre tranquillité d\'esprit.',
       price: 'Inclus',
-      gradient: 'from-blue-600 to-green-500',
+      gradient: 'from-blue-500 to-purple-600',
       href: '#pricing'
     },
     {
@@ -50,7 +50,7 @@ export function ServicesSection() {
       title: 'Consultation Digital',
       description: 'Audit de votre présence digitale et conseils personnalisés pour optimiser votre stratégie.',
       price: 'Gratuit',
-      gradient: 'from-green-500 to-blue-600',
+      gradient: 'from-orange-500 to-blue-500',
       href: '#contact'
     }
   ];

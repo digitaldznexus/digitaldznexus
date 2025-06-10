@@ -130,7 +130,7 @@ export function TestimonialsSection() {
                 key={index}
                 onClick={() => setCurrentTestimonial(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentTestimonial ? 'bg-blue-600' : 'bg-gray-300'
+                  index === currentTestimonial ? 'bg-purple-600' : 'bg-gray-300'
                 }`}
               />
             ))}

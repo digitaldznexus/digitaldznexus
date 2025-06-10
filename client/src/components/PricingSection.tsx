@@ -138,8 +138,8 @@ export function PricingSection() {
             <motion.div
               key={plan.name}
               className={`card-hover bg-white rounded-2xl p-6 shadow-lg border ${
-                plan.popular ? 'border-blue-600 border-2 relative' : 
-                plan.isDiscovery ? 'border-green-500 border-2 relative bg-gradient-to-br from-green-50 to-white' :
+                plan.popular ? 'border-purple-600 border-2 relative' : 
+                plan.isDiscovery ? 'border-orange-500 border-2 relative bg-gradient-to-br from-orange-50 to-white' :
                 'border-gray-100'
               }`}
               initial={{ opacity: 0, y: 30 }}

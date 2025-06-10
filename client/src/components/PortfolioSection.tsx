@@ -106,8 +106,8 @@ export function PortfolioSection() {
                 onClick={() => setActiveFilter(filter.id)}
                 className={`px-6 py-2 rounded-full font-medium transition-all ${
                   activeFilter === filter.id
-                    ? 'bg-royal-blue text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-royal-blue hover:text-white'
+                    ? 'bg-purple-600 text-white'
+                    : 'bg-gray-100 text-gray-700 hover:bg-purple-600 hover:text-white'
                 }`}
               >
                 {filter.label}
