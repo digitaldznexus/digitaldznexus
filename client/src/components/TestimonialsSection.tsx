@@ -43,12 +43,12 @@ export function TestimonialsSection() {
   }, [testimonials.length]);
 
   return (
-    <section id="testimonials" className="py-16 lg:py-24 bg-gray-50">
+    <section id="testimonials" className="py-16 lg:py-24 bg-gradient-to-br from-purple-600 via-blue-600 to-orange-500">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
           <motion.h2 
-            className="font-montserrat font-bold text-3xl md:text-4xl lg:text-5xl text-gray-800 mb-6"
+            className="font-montserrat font-bold text-3xl md:text-4xl lg:text-5xl text-white mb-6"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -57,7 +57,7 @@ export function TestimonialsSection() {
             Ce Que Disent Nos Clients
           </motion.h2>
           <motion.p 
-            className="text-xl text-gray-600 max-w-3xl mx-auto"
+            className="text-xl text-white/90 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}

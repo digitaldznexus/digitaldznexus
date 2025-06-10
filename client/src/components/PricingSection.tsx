@@ -122,7 +122,7 @@ export function PricingSection() {
             Nos Tarifs Transparents
           </motion.h2>
           <motion.p 
-            className="text-xl text-gray-600 max-w-3xl mx-auto"
+            className="text-xl text-white/90 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -220,18 +220,18 @@ export function PricingSection() {
 
         {/* Interactive Calculator */}
         <motion.div 
-          className="bg-light-gray rounded-2xl p-8"
+          className="bg-white/10 backdrop-blur-sm rounded-2xl p-8"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h3 className="font-montserrat font-bold text-2xl text-center text-dark-gray mb-8">Calculateur de Budget</h3>
+          <h3 className="font-montserrat font-bold text-2xl text-center text-white mb-8">Calculateur de Budget</h3>
           
           <div className="max-w-2xl mx-auto">
             {/* Service Selection */}
             <div className="mb-8">
-              <label className="block text-lg font-semibold text-dark-gray mb-4">Sélectionnez vos services :</label>
+              <label className="block text-lg font-semibold text-white mb-4">Sélectionnez vos services :</label>
               <div className="space-y-4">
                 {calculatorServices.map((service) => (
                   <label key={service.id} className="flex items-center cursor-pointer">
@@ -241,7 +241,7 @@ export function PricingSection() {
                       onChange={() => toggleService(service.id)}
                       className="mr-3 rounded border-gray-300 text-purple-600 focus:ring-purple-600"
                     />
-                    <span>{service.name} ({service.price.toLocaleString()} DZ)</span>
+                    <span className="text-white">{service.name} ({service.price.toLocaleString()} DZ)</span>
                   </label>
                 ))}
               </div>
@@ -249,9 +249,9 @@ export function PricingSection() {
 
             {/* Total Display */}
             <div className="bg-white rounded-xl p-6 text-center">
-              <p className="text-lg text-medium-gray mb-2">Total estimé :</p>
+              <p className="text-lg text-gray-600 mb-2">Total estimé :</p>
               <div className="text-3xl font-bold text-purple-600 mb-4">{total.toLocaleString()} DZ</div>
-              <div className="text-sm text-medium-gray mb-4">Paiement 3x : {monthlyPayment.toLocaleString()} DZ/mois</div>
+              <div className="text-sm text-gray-600 mb-4">Paiement 3x : {monthlyPayment.toLocaleString()} DZ/mois</div>
               {selectedServices.length > 0 && (
                 <div className="text-sm text-gray-600 mb-4">
                   Services sélectionnés: {selectedServices.map(id => 

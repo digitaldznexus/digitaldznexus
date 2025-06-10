@@ -98,7 +98,7 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-16 lg:py-24 bg-gray-50">
+    <section id="contact" className="py-16 lg:py-24 bg-gradient-to-br from-purple-600 via-blue-600 to-orange-500">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
