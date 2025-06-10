@@ -96,7 +96,7 @@ export function PricingSection() {
         {/* Section Header */}
         <div className="text-center mb-16">
           <motion.h2 
-            className="font-montserrat font-bold text-3xl md:text-4xl lg:text-5xl text-dark-gray mb-6"
+            className="font-montserrat font-bold text-3xl md:text-4xl lg:text-5xl text-gray-800 mb-6"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -105,7 +105,7 @@ export function PricingSection() {
             Nos Tarifs Transparents
           </motion.h2>
           <motion.p 
-            className="text-xl text-medium-gray max-w-3xl mx-auto"
+            className="text-xl text-gray-600 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -136,15 +136,15 @@ export function PricingSection() {
               )}
               
               <div className="text-center mb-8">
-                <h3 className="font-montserrat font-bold text-2xl text-dark-gray mb-4">{plan.name}</h3>
-                <div className="text-4xl font-bold text-royal-blue mb-2">{plan.price}</div>
-                <p className="text-medium-gray">{plan.description}</p>
+                <h3 className="font-montserrat font-bold text-2xl text-gray-800 mb-4">{plan.name}</h3>
+                <div className="text-4xl font-bold text-blue-600 mb-2">{plan.price}</div>
+                <p className="text-gray-600">{plan.description}</p>
               </div>
               
               <ul className="space-y-4 mb-8">
                 {plan.features.map((feature, featureIndex) => (
                   <li key={featureIndex} className="flex items-center">
-                    <i className="fas fa-check text-accent-green mr-3"></i>
+                    <i className="fas fa-check text-green-500 mr-3"></i>
                     <span>{feature}</span>
                   </li>
                 ))}
@@ -155,13 +155,13 @@ export function PricingSection() {
                   onClick={scrollToContact}
                   className={`block w-full py-3 rounded-full font-semibold transition-all duration-300 ${
                     plan.popular 
-                      ? 'btn-primary text-white' 
-                      : 'bg-gray-100 text-gray-700 hover:bg-royal-blue hover:text-white'
+                      ? 'bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white' 
+                      : 'bg-gray-100 text-gray-700 hover:bg-blue-600 hover:text-white'
                   }`}
                 >
                   {plan.name === 'Pack Sur Mesure' ? 'Demander un devis' : 'Choisir ce pack'}
                 </button>
-                <p className="text-sm text-medium-gray mt-2">Paiement 3x: {plan.monthlyPayment}</p>
+                <p className="text-sm text-gray-600 mt-2">Paiement 3x: {plan.monthlyPayment}</p>
               </div>
             </motion.div>
           ))}

@@ -57,7 +57,7 @@ export function TestimonialsSection() {
             Ce Que Disent Nos Clients
           </motion.h2>
           <motion.p 
-            className="text-xl text-medium-gray max-w-3xl mx-auto"
+            className="text-xl text-gray-600 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -99,8 +99,8 @@ export function TestimonialsSection() {
                           className="w-12 h-12 rounded-full object-cover mr-4"
                         />
                         <div>
-                          <h4 className="font-semibold text-dark-gray">{testimonial.name}</h4>
-                          <p className="text-medium-gray text-sm">{testimonial.position}</p>
+                          <h4 className="font-semibold text-gray-800">{testimonial.name}</h4>
+                          <p className="text-gray-600 text-sm">{testimonial.position}</p>
                         </div>
                       </div>
                     </motion.div>
@@ -130,7 +130,7 @@ export function TestimonialsSection() {
                 key={index}
                 onClick={() => setCurrentTestimonial(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentTestimonial ? 'bg-royal-blue' : 'bg-gray-300'
+                  index === currentTestimonial ? 'bg-blue-600' : 'bg-gray-300'
                 }`}
               />
             ))}
