@@ -8,6 +8,23 @@ export function PricingSection() {
 
   const pricingPlans = [
     {
+      name: 'Offre Découverte',
+      price: '15k DZ',
+      description: 'Parfait pour tester nos services',
+      features: [
+        'Site 1 page responsive',
+        'Design moderne et attractif',
+        'Hébergement 6 mois inclus',
+        'Domaine .dz inclus',
+        'Formulaire de contact',
+        'Optimisation mobile',
+        'Support 1 mois'
+      ],
+      monthlyPayment: '15k DZ comptant',
+      popular: false,
+      isDiscovery: true
+    },
+    {
       name: 'Pack Starter',
       price: '30k - 50k DZ',
       description: 'Site vitrine basique',
@@ -116,12 +133,14 @@ export function PricingSection() {
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {pricingPlans.map((plan, index) => (
             <motion.div
               key={plan.name}
               className={`card-hover bg-white rounded-2xl p-8 shadow-lg border ${
-                plan.popular ? 'border-royal-blue border-2 relative' : 'border-gray-100'
+                plan.popular ? 'border-blue-600 border-2 relative' : 
+                plan.isDiscovery ? 'border-green-500 border-2 relative bg-gradient-to-br from-green-50 to-white' :
+                'border-gray-100'
               }`}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -130,8 +149,13 @@ export function PricingSection() {
               whileHover={{ y: -8 }}
             >
               {plan.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-royal-blue text-white px-6 py-2 rounded-full text-sm font-semibold">
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-semibold">
                   Le plus populaire
+                </div>
+              )}
+              {plan.isDiscovery && (
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-6 py-2 rounded-full text-sm font-semibold">
+                  Offre de test
                 </div>
               )}
               
@@ -156,7 +180,9 @@ export function PricingSection() {
                   className={`block w-full py-3 rounded-full font-semibold transition-all duration-300 ${
                     plan.popular 
                       ? 'bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white' 
-                      : 'bg-gray-100 text-gray-700 hover:bg-blue-600 hover:text-white'
+                      : plan.isDiscovery
+                        ? 'bg-gradient-to-r from-green-400 to-green-500 hover:from-green-500 hover:to-green-600 text-white'
+                        : 'bg-gray-100 text-gray-700 hover:bg-blue-600 hover:text-white'
                   }`}
                 >
                   {plan.name === 'Pack Sur Mesure' ? 'Demander un devis' : 'Choisir ce pack'}

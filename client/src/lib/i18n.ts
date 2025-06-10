@@ -45,6 +45,21 @@ const resources = {
           status: "En développement"
         }
       },
+      // Portfolio
+      portfolio: {
+        title: "Nos Réalisations",
+        subtitle: "Découvrez les projets que nous avons réalisés avec succès pour nos clients"
+      },
+      // Testimonials
+      testimonials: {
+        title: "Ce Que Disent Nos Clients",
+        subtitle: "Témoignages authentiques de nos clients satisfaits"
+      },
+      // Pricing
+      pricing: {
+        title: "Nos Tarifs Transparents",
+        subtitle: "Choisissez l'offre qui correspond le mieux à vos besoins et votre budget"
+      },
       // Contact
       contact: {
         title: "Parlons de Votre Projet",
@@ -133,12 +148,15 @@ const resources = {
         subtitle: "اختر الباقة التي تناسب احتياجاتك وميزانيتك",
         discovery: {
           title: "عرض الاكتشاف",
-          description: "مثالي للبداية",
+          description: "مثالي لتجربة خدماتنا",
           features: [
-            "موقع صفحة واحدة",
-            "استضافة 6 أشهر",
-            "دعم فني أساسي",
-            "تصميم احترافي"
+            "موقع صفحة واحدة متجاوب",
+            "تصميم عصري وجذاب",
+            "استضافة 6 أشهر مجانية",
+            "نطاق .dz مجاني",
+            "نموذج اتصال",
+            "تحسين للجوال",
+            "دعم فني شهر واحد"
           ]
         },
         starter: {
