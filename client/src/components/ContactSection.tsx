@@ -135,15 +135,15 @@ export function ContactSection() {
             <div className="flex items-center justify-between mb-8">
               <div className="flex items-center">
                 <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold mr-2 ${
-                  currentStep >= 1 ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-500'
+                  currentStep >= 1 ? 'bg-purple-600 text-white' : 'bg-gray-200 text-gray-500'
                 }`}>1</div>
-                <span className={`text-sm font-medium ${currentStep >= 1 ? 'text-blue-600' : 'text-gray-500'}`}>
+                <span className={`text-sm font-medium ${currentStep >= 1 ? 'text-purple-600' : 'text-gray-500'}`}>
                   {t('contact.form.step1')}
                 </span>
               </div>
               <div className="flex-1 h-1 bg-gray-200 mx-4">
                 <div 
-                  className="h-1 bg-blue-600 transition-all duration-300"
+                  className="h-1 bg-purple-600 transition-all duration-300"
                   style={{ width: `${(currentStep / 3) * 100}%` }}
                 ></div>
               </div>

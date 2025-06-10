@@ -20,16 +20,16 @@ export function Footer() {
               Votre partenaire digital en Algérie pour transformer vos idées en réalités numériques performantes.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="w-10 h-10 bg-blue-600/20 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+              <a href="#" className="w-10 h-10 bg-purple-600/20 rounded-full flex items-center justify-center hover:bg-purple-600 transition-colors">
                 <i className="fab fa-facebook-f text-sm"></i>
               </a>
-              <a href="#" className="w-10 h-10 bg-blue-600/20 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+              <a href="#" className="w-10 h-10 bg-purple-600/20 rounded-full flex items-center justify-center hover:bg-purple-600 transition-colors">
                 <i className="fab fa-instagram text-sm"></i>
               </a>
               <a href="#" className="w-10 h-10 bg-blue-600/20 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
                 <i className="fab fa-linkedin-in text-sm"></i>
               </a>
-              <a href="https://wa.me/213666475367" className="w-10 h-10 bg-green-500/20 rounded-full flex items-center justify-center hover:bg-green-500 transition-colors">
+              <a href="https://wa.me/213666475367" className="w-10 h-10 bg-orange-500/20 rounded-full flex items-center justify-center hover:bg-orange-500 transition-colors">
                 <i className="fab fa-whatsapp text-sm"></i>
               </a>
             </div>
@@ -39,12 +39,12 @@ export function Footer() {
           <div>
             <h3 className="font-montserrat font-bold text-lg mb-6">Nos Services</h3>
             <ul className="space-y-3 text-gray-300">
-              <li><Link href="/services" className="hover:text-green-500 transition-colors">Création Sites Web</Link></li>
-              <li><Link href="/services" className="hover:text-green-500 transition-colors">E-commerce</Link></li>
-              <li><Link href="/services" className="hover:text-green-500 transition-colors">Branding Digital</Link></li>
-              <li><Link href="/services" className="hover:text-green-500 transition-colors">Formation WhatsApp</Link></li>
-              <li><Link href="/services" className="hover:text-green-500 transition-colors">SEO & Marketing</Link></li>
-              <li><Link href="/services" className="hover:text-green-500 transition-colors">Maintenance</Link></li>
+              <li><Link href="/services" className="hover:text-orange-500 transition-colors">Création Sites Web</Link></li>
+              <li><Link href="/services" className="hover:text-orange-500 transition-colors">E-commerce</Link></li>
+              <li><Link href="/services" className="hover:text-orange-500 transition-colors">Branding Digital</Link></li>
+              <li><Link href="/services" className="hover:text-orange-500 transition-colors">Formation WhatsApp</Link></li>
+              <li><Link href="/services" className="hover:text-orange-500 transition-colors">SEO & Marketing</Link></li>
+              <li><Link href="/services" className="hover:text-orange-500 transition-colors">Maintenance</Link></li>
             </ul>
           </div>
 
@@ -52,12 +52,12 @@ export function Footer() {
           <div>
             <h3 className="font-montserrat font-bold text-lg mb-6">Liens Rapides</h3>
             <ul className="space-y-3 text-gray-300">
-              <li><Link href="/" className="hover:text-green-500 transition-colors">Accueil</Link></li>
-              <li><Link href="/portfolio" className="hover:text-green-500 transition-colors">Portfolio</Link></li>
-              <li><Link href="/testimonials" className="hover:text-green-500 transition-colors">Témoignages</Link></li>
-              <li><Link href="/pricing" className="hover:text-green-500 transition-colors">Tarifs</Link></li>
-              <li><Link href="/contact" className="hover:text-green-500 transition-colors">Contact</Link></li>
-              <li><a href="#" className="hover:text-green-500 transition-colors">Blog</a></li>
+              <li><Link href="/" className="hover:text-orange-500 transition-colors">Accueil</Link></li>
+              <li><Link href="/portfolio" className="hover:text-orange-500 transition-colors">Portfolio</Link></li>
+              <li><Link href="/testimonials" className="hover:text-orange-500 transition-colors">Témoignages</Link></li>
+              <li><Link href="/pricing" className="hover:text-orange-500 transition-colors">Tarifs</Link></li>
+              <li><Link href="/contact" className="hover:text-orange-500 transition-colors">Contact</Link></li>
+              <li><a href="#" className="hover:text-orange-500 transition-colors">Blog</a></li>
             </ul>
           </div>
 
@@ -66,19 +66,19 @@ export function Footer() {
             <h3 className="font-montserrat font-bold text-lg mb-6">Contact</h3>
             <div className="space-y-4 text-gray-300">
               <div className="flex items-center">
-                <i className="fas fa-map-marker-alt w-5 mr-3 text-green-500"></i>
+                <i className="fas fa-map-marker-alt w-5 mr-3 text-orange-500"></i>
                 <span>Avenue Khemisti, Mostaganem</span>
               </div>
               <div className="flex items-center">
-                <i className="fas fa-phone w-5 mr-3 text-green-500"></i>
-                <a href="tel:0666475367" className="hover:text-green-500 transition-colors">0666 47 53 67</a>
+                <i className="fas fa-phone w-5 mr-3 text-orange-500"></i>
+                <a href="tel:0666475367" className="hover:text-orange-500 transition-colors">0666 47 53 67</a>
               </div>
               <div className="flex items-center">
-                <i className="fas fa-envelope w-5 mr-3 text-green-500"></i>
-                <a href="mailto:digitaldznexus@gmail.com" className="hover:text-green-500 transition-colors">digitaldznexus@gmail.com</a>
+                <i className="fas fa-envelope w-5 mr-3 text-orange-500"></i>
+                <a href="mailto:digitaldznexus@gmail.com" className="hover:text-orange-500 transition-colors">digitaldznexus@gmail.com</a>
               </div>
               <div className="flex items-center">
-                <i className="fas fa-clock w-5 mr-3 text-green-500"></i>
+                <i className="fas fa-clock w-5 mr-3 text-orange-500"></i>
                 <span>Lun-Ven: 9h-18h</span>
               </div>
             </div>
