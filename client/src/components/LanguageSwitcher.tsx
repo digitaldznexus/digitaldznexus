@@ -18,8 +18,8 @@ export function LanguageSwitcher() {
         onClick={() => switchLanguage('fr')}
         className={`px-3 py-1 rounded-full text-sm font-medium transition-all ${
           currentLang === 'fr'
-            ? 'bg-royal-blue text-white'
-            : 'text-gray-600 hover:bg-royal-blue/10'
+            ? 'bg-blue-600 text-white'
+            : 'text-gray-600 hover:bg-blue-50'
         }`}
       >
         FR
@@ -28,8 +28,8 @@ export function LanguageSwitcher() {
         onClick={() => switchLanguage('ar')}
         className={`px-3 py-1 rounded-full text-sm font-medium transition-all ${
           currentLang === 'ar'
-            ? 'bg-royal-blue text-white'
-            : 'text-gray-600 hover:bg-royal-blue/10'
+            ? 'bg-blue-600 text-white'
+            : 'text-gray-600 hover:bg-blue-50'
         }`}
       >
         AR
