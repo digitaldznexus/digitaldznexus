@@ -103,7 +103,7 @@ export function ContactSection() {
         {/* Section Header */}
         <div className="text-center mb-16">
           <motion.h2 
-            className="font-montserrat font-bold text-3xl md:text-4xl lg:text-5xl text-gray-800 mb-6"
+            className="font-montserrat font-bold text-3xl md:text-4xl lg:text-5xl text-white mb-6"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -112,7 +112,7 @@ export function ContactSection() {
             {t('contact.title')}
           </motion.h2>
           <motion.p 
-            className="text-xl text-gray-600 max-w-3xl mx-auto"
+            className="text-xl text-white/90 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -384,61 +384,61 @@ export function ContactSection() {
             viewport={{ once: true }}
           >
             {/* Contact Cards */}
-            <div className="bg-white rounded-2xl p-6 shadow-lg">
-              <h3 className="font-montserrat font-bold text-xl text-gray-800 mb-6">Contactez-nous directement</h3>
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
+              <h3 className="font-montserrat font-bold text-xl text-white mb-6">Contactez-nous directement</h3>
               
               <div className="space-y-4">
                 <div className="flex items-center">
-                  <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center mr-4">
-                    <i className="fas fa-phone text-blue-600"></i>
+                  <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mr-4">
+                    <i className="fas fa-phone text-white"></i>
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-800">Téléphone</p>
-                    <a href="tel:0666475367" className="text-blue-600 hover:text-green-500 transition-colors">
+                    <p className="font-semibold text-white">Téléphone</p>
+                    <a href="tel:0666475367" className="text-white/90 hover:text-orange-300 transition-colors">
                       0666 47 53 67
                     </a>
                   </div>
                 </div>
                 
                 <div className="flex items-center">
-                  <div className="w-12 h-12 bg-green-50 rounded-full flex items-center justify-center mr-4">
-                    <i className="fab fa-whatsapp text-green-500"></i>
+                  <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mr-4">
+                    <i className="fab fa-whatsapp text-white"></i>
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-800">WhatsApp Business</p>
-                    <a href="https://wa.me/213666475367" className="text-green-500 hover:text-blue-600 transition-colors">
+                    <p className="font-semibold text-white">WhatsApp Business</p>
+                    <a href="https://wa.me/213666475367" className="text-white/90 hover:text-orange-300 transition-colors">
                       0666 47 53 67
                     </a>
                   </div>
                 </div>
                 
                 <div className="flex items-center">
-                  <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center mr-4">
-                    <i className="fas fa-envelope text-blue-600"></i>
+                  <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mr-4">
+                    <i className="fas fa-envelope text-white"></i>
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-800">Email</p>
-                    <a href="mailto:digitaldznexus@gmail.com" className="text-blue-600 hover:text-green-500 transition-colors">
+                    <p className="font-semibold text-white">Email</p>
+                    <a href="mailto:digitaldznexus@gmail.com" className="text-white/90 hover:text-orange-300 transition-colors">
                       digitaldznexus@gmail.com
                     </a>
                   </div>
                 </div>
                 
                 <div className="flex items-center">
-                  <div className="w-12 h-12 bg-green-50 rounded-full flex items-center justify-center mr-4">
-                    <i className="fas fa-map-marker-alt text-green-500"></i>
+                  <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mr-4">
+                    <i className="fas fa-map-marker-alt text-white"></i>
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-800">Localisation</p>
-                    <p className="text-gray-600">Avenue Khemisti, Mostaganem</p>
+                    <p className="font-semibold text-white">Localisation</p>
+                    <p className="text-white/90">Avenue Khemisti, Mostaganem</p>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Office Image */}
-            <div className="bg-white rounded-2xl p-6 shadow-lg">
-              <h3 className="font-montserrat font-bold text-xl text-gray-800 mb-4">Notre bureau</h3>
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
+              <h3 className="font-montserrat font-bold text-xl text-white mb-4">Notre bureau</h3>
               <img 
                 src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400" 
                 alt="Digital Nexus office in Mostaganem" 
