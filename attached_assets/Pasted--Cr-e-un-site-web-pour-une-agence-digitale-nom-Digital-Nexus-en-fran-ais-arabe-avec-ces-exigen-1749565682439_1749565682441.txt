@@ -1,0 +1,116 @@
+**Crée un site web pour une agence digitale (nom: "Digital Nexus") en français/arabe avec ces exigences :**  
+
+1. **Objectif Principal**  
+   - Convertir les visiteurs en leads via des formulaires de contact optimisés.  
+   - Renforcer la crédibilité avec des preuves sociales (témoignages, études de cas).  
+
+2. **Design & UX**  
+   - Palette : Bleu royal (#2A5EE8) et dégradés de gris foncé (#1E1E2C) + touches de vert (#00C897) pour les CTA.  
+   - Typographie : Inter pour le corps, Montserrat pour les titres (Google Fonts).  
+   - Animations : Micro-interactions au survol (boutons, cartes), défilement parallaxe.  
+
+3. **Sections Obligatoires**  
+   - Hero Section : Vidéo d'arrière-plan + slogan percutant ("Transformez Votre Vision en Réalité Digitale").  
+   - Services : Grille interactive (3 colonnes) avec icônes SVG personnalisées.  
+   - Portfolio : Filtres par catégorie (création site web, Formation whatsapp Business, brandingL ) + modaux détaillés.  
+   - Témoignages : Carrousel auto-défilant avec photos clients et logos d'entreprises.  
+   - Contact : Formulaire intelligent en 3 étapes (coordonnées+ besoins + moyens de contact) avec intégration HubSpot/Netlify.  
+
+4. **Optimisations Techniques**  
+   - SEO : Balises méta dynamiques (via Next.js), schema.org pour les services, blog intégré (Headless CMS).  
+   - Performance : Lazy loading des images, compression WebP, préchargement des polices.  
+   - Accessibilité : Niveau AA (contraste vérifié via Lighthouse), navigation au clavier.  
+
+5. **Fonctionnalités Avancées**  
+   - Chat en direct (Tawk.to ou Crisp) pour le support instantané.  
+   - Calculateur de budget interactif (sliders pour sélectionner les services).  
+   - Intégration LinkedIn/Instagram pour un flux "actualités" en temps réel.  
+
+6. **Stack Technique**  
+   - Framework : Next.js (SSR pour le SEO).  
+   - Style : Tailwind CSS + Framer Motion pour les animations.  
+   - Déploiement : Vercel (optimisations intégrées).  
+
+7. **Livrables Attendus**  
+   - Maquettes Figma (version desktop/mobile) incluant les états interactifs (hover, focus).  
+   - Code source commenté + documentation d'installation.  
+   - Audit SEO initial via Screaming Frog.   
+
+Grille Tarifaire Optimisée pour le service de création de site Web (Marché Algérien)
+1. Pack Starter (Site Vitrine Basique)
+Pour : Très petites entreprises, artisans, portfolios.
+Inclusions :
+•	3 à 5 pages (Accueil, Services, Contact, etc.)
+•	Template moderne mais prédéfini (ex: Elementor/WordPress)
+•	Hébergement + nom de domaine (.dz) offerts 1 an
+•	Responsive (mobile-friendly)
+•	Formulaire de contact + liens réseaux sociaux
+•	SEO très basique (titles, descriptions)
+•	Livraison en 7-10 jours
+Prix : 30 000 DZ – 50 000 DZ
+→ Argument : "Démarrez en ligne pour le prix d’un smartphone basique !"
+________________________________________
+2. Pack Pro (Site Avancé ou E-commerce Léger)
+Pour : PME, boutiques en ligne, professionnels.
+Inclusions :
+•	10-15 pages ou boutique WooCommerce (20 produits max)
+•	Design semi-personnalisé (choix parmi 3 thèmes premium)
+•	Hébergement performant + nom de domaine (.com ou .dz)
+•	SEO optimisé (métas, images, vitesse)
+•	Intégration de paiement (Carte, CIB, etc.)
+•	Blog intégré + Google Analytics
+•	2 mois de support gratuit
+Prix : 80 000 DZ – 150 000 DZ
+→ Argument : "Votre site clé en main, optimisé pour attirer des clients."
+________________________________________
+3. Pack Sur Mesure (Full Custom)
+Pour : Projets complexes (marketplaces, applications métier).
+Inclusions :
+•	Développement from scratch (frontend + backend)
+•	Design UX/UI unique (maquettes validées avant dev)
+•	Fonctionnalités sur mesure (comptes utilisateurs, API, etc.)
+•	Hébergement sécurisé (VPS) + maintenance 6 mois
+•	Formation complète
+•	Référencement SEO/SEA inclus
+Prix : À partir de 200 000 DZ (selon besoins)
+→ Argument : "Une solution 100% adaptée à votre activité, sans limites."
+4.	Offre découverte :
+o	"Site 1 page + hébergement 6 mois à 15 000 DZ" (pour tester la demande).
+
+5. L’Offre "Digital Pack" 
+Fusionne ton Pack Pro avec des services digitaux demandés pour en faire un "must-have" :
+•	Inclus :
+✅ Site vitrine/e-commerce (10-15 pages)
+✅ Hébergement + nom de domaine (.dz ou .com)
+✅ 3 mois de gestion des réseaux sociaux (12 posts + réponses aux messages)
+✅ 1 vidéo promo simple (pour FB/Instagram)
+•	Prix : 200 000 DZ (au lieu de 250 000 DZ si vendus séparément).
+Exemple de pub :
+*"Votre business 100% en ligne, clé en main : Site + Réseaux + Vidéo. Offre limitée à 5 clients/mois !"*
+
+Modes de paiement flexibles:
+le client à le choix entre :
+2.	Paiement échelonné :
+o	30% à la signature, 50% à la livraison, 20% après formation.
+3.	Garantie satisfait ou remboursé (7 jours) pour les packs Starter/Pro.
+Ou : 
+Le "Paiement en 3x Sans Frais" (Pour Convertir + de Clients)
+•	Pack Starter : 10 000 DZ x 3 mois.
+•	Pack Pro : 50 000 DZ x 3 mois.
+•	Sur mesure : 70 000 DZ x 3 mois (pour projets > 200k DZ).
+
+Les services whatsapp business et digital branding sont en developpement.
+
+Coordonnées de contact : 
+Mobile : 0666475367
+Whatsapp business : 0666475367
+E-mail : digitaldznexus@gmail.com
+Localisation : avenue khemisti Mostaganem.
+
+Pain points des clients business :
+•	Manque de visibilité en ligne
+•	Peu de conversion client
+•	Un « Pourquoi » faible
+
+
+
