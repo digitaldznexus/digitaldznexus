@@ -149,18 +149,18 @@ export function ContactSection() {
               </div>
               <div className="flex items-center">
                 <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold mr-2 ${
-                  currentStep >= 2 ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-500'
+                  currentStep >= 2 ? 'bg-purple-600 text-white' : 'bg-gray-200 text-gray-500'
                 }`}>2</div>
-                <span className={`text-sm font-medium ${currentStep >= 2 ? 'text-blue-600' : 'text-gray-500'}`}>
+                <span className={`text-sm font-medium ${currentStep >= 2 ? 'text-purple-600' : 'text-gray-500'}`}>
                   {t('contact.form.step2')}
                 </span>
               </div>
               <div className="flex-1 h-1 bg-gray-200 mx-4"></div>
               <div className="flex items-center">
                 <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold mr-2 ${
-                  currentStep >= 3 ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-500'
+                  currentStep >= 3 ? 'bg-purple-600 text-white' : 'bg-gray-200 text-gray-500'
                 }`}>3</div>
-                <span className={`text-sm font-medium ${currentStep >= 3 ? 'text-blue-600' : 'text-gray-500'}`}>
+                <span className={`text-sm font-medium ${currentStep >= 3 ? 'text-purple-600' : 'text-gray-500'}`}>
                   {t('contact.form.step3')}
                 </span>
               </div>

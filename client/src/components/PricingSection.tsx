@@ -149,26 +149,26 @@ export function PricingSection() {
               whileHover={{ y: -8 }}
             >
               {plan.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-semibold">
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-purple-600 text-white px-6 py-2 rounded-full text-sm font-semibold">
                   Le plus populaire
                 </div>
               )}
               {plan.isDiscovery && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-6 py-2 rounded-full text-sm font-semibold">
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-orange-500 text-white px-6 py-2 rounded-full text-sm font-semibold">
                   Offre de test
                 </div>
               )}
               
               <div className="text-center mb-6">
                 <h3 className="font-montserrat font-bold text-xl text-gray-800 mb-3">{plan.name}</h3>
-                <div className="text-3xl font-bold text-blue-600 mb-2">{plan.price}</div>
+                <div className="text-3xl font-bold text-purple-600 mb-2">{plan.price}</div>
                 <p className="text-gray-600 text-sm">{plan.description}</p>
               </div>
               
               <ul className="space-y-3 mb-6">
                 {plan.features.map((feature, featureIndex) => (
                   <li key={featureIndex} className="flex items-start">
-                    <i className="fas fa-check text-green-500 mr-2 mt-1 text-sm"></i>
+                    <i className="fas fa-check text-orange-500 mr-2 mt-1 text-sm"></i>
                     <span className="text-sm">{feature}</span>
                   </li>
                 ))}
@@ -179,9 +179,9 @@ export function PricingSection() {
                   onClick={scrollToContact}
                   className={`block w-full py-3 rounded-full font-semibold transition-all duration-300 ${
                     plan.popular 
-                      ? 'bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white' 
+                      ? 'bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white' 
                       : plan.isDiscovery
-                        ? 'bg-gradient-to-r from-green-400 to-green-500 hover:from-green-500 hover:to-green-600 text-white'
+                        ? 'bg-gradient-to-r from-orange-400 to-orange-500 hover:from-orange-500 hover:to-orange-600 text-white'
                         : 'bg-gray-100 text-gray-700 hover:bg-blue-600 hover:text-white'
                   }`}
                 >
@@ -239,7 +239,7 @@ export function PricingSection() {
                       type="checkbox"
                       checked={selectedServices.includes(service.id)}
                       onChange={() => toggleService(service.id)}
-                      className="mr-3 rounded border-gray-300 text-royal-blue focus:ring-royal-blue"
+                      className="mr-3 rounded border-gray-300 text-purple-600 focus:ring-purple-600"
                     />
                     <span>{service.name} ({service.price.toLocaleString()} DZ)</span>
                   </label>
@@ -250,7 +250,7 @@ export function PricingSection() {
             {/* Total Display */}
             <div className="bg-white rounded-xl p-6 text-center">
               <p className="text-lg text-medium-gray mb-2">Total estimé :</p>
-              <div className="text-3xl font-bold text-royal-blue mb-4">{total.toLocaleString()} DZ</div>
+              <div className="text-3xl font-bold text-purple-600 mb-4">{total.toLocaleString()} DZ</div>
               <div className="text-sm text-medium-gray mb-4">Paiement 3x : {monthlyPayment.toLocaleString()} DZ/mois</div>
               {selectedServices.length > 0 && (
                 <div className="text-sm text-gray-600 mb-4">

@@ -11,7 +11,7 @@ export function Footer() {
           {/* Company Info */}
           <div>
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-green-500 rounded-lg flex items-center justify-center">
+              <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-orange-500 rounded-lg flex items-center justify-center">
                 <span className="text-white font-montserrat font-bold text-lg">DN</span>
               </div>
               <span className="font-montserrat font-bold text-xl">Digital Nexus</span>
