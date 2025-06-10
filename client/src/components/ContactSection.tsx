@@ -98,12 +98,12 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-16 lg:py-24 bg-light-gray">
+    <section id="contact" className="py-16 lg:py-24 bg-gray-50">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
           <motion.h2 
-            className="font-montserrat font-bold text-3xl md:text-4xl lg:text-5xl text-dark-gray mb-6"
+            className="font-montserrat font-bold text-3xl md:text-4xl lg:text-5xl text-gray-800 mb-6"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -112,7 +112,7 @@ export function ContactSection() {
             {t('contact.title')}
           </motion.h2>
           <motion.p 
-            className="text-xl text-medium-gray max-w-3xl mx-auto"
+            className="text-xl text-gray-600 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -135,32 +135,32 @@ export function ContactSection() {
             <div className="flex items-center justify-between mb-8">
               <div className="flex items-center">
                 <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold mr-2 ${
-                  currentStep >= 1 ? 'bg-royal-blue text-white' : 'bg-gray-200 text-gray-500'
+                  currentStep >= 1 ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-500'
                 }`}>1</div>
-                <span className={`text-sm font-medium ${currentStep >= 1 ? 'text-royal-blue' : 'text-gray-500'}`}>
+                <span className={`text-sm font-medium ${currentStep >= 1 ? 'text-blue-600' : 'text-gray-500'}`}>
                   {t('contact.form.step1')}
                 </span>
               </div>
               <div className="flex-1 h-1 bg-gray-200 mx-4">
                 <div 
-                  className="h-1 bg-royal-blue transition-all duration-300"
+                  className="h-1 bg-blue-600 transition-all duration-300"
                   style={{ width: `${(currentStep / 3) * 100}%` }}
                 ></div>
               </div>
               <div className="flex items-center">
                 <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold mr-2 ${
-                  currentStep >= 2 ? 'bg-royal-blue text-white' : 'bg-gray-200 text-gray-500'
+                  currentStep >= 2 ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-500'
                 }`}>2</div>
-                <span className={`text-sm font-medium ${currentStep >= 2 ? 'text-royal-blue' : 'text-gray-500'}`}>
+                <span className={`text-sm font-medium ${currentStep >= 2 ? 'text-blue-600' : 'text-gray-500'}`}>
                   {t('contact.form.step2')}
                 </span>
               </div>
               <div className="flex-1 h-1 bg-gray-200 mx-4"></div>
               <div className="flex items-center">
                 <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold mr-2 ${
-                  currentStep >= 3 ? 'bg-royal-blue text-white' : 'bg-gray-200 text-gray-500'
+                  currentStep >= 3 ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-500'
                 }`}>3</div>
-                <span className={`text-sm font-medium ${currentStep >= 3 ? 'text-royal-blue' : 'text-gray-500'}`}>
+                <span className={`text-sm font-medium ${currentStep >= 3 ? 'text-blue-600' : 'text-gray-500'}`}>
                   {t('contact.form.step3')}
                 </span>
               </div>
@@ -176,7 +176,7 @@ export function ContactSection() {
                   exit={{ opacity: 0, x: -30 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <h3 className="font-montserrat font-bold text-xl text-dark-gray mb-6">Vos coordonnées</h3>
+                  <h3 className="font-montserrat font-bold text-xl text-gray-800 mb-6">Vos coordonnées</h3>
                   
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
