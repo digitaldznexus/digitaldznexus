@@ -448,7 +448,7 @@ export function ContactSection() {
             </div>
 
             {/* Response Time */}
-            <div className="bg-gradient-to-br from-royal-blue to-accent-green rounded-2xl p-6 text-white">
+            <div className="bg-gradient-to-br from-blue-600 to-green-500 rounded-2xl p-6 text-white">
               <h3 className="font-montserrat font-bold text-xl mb-4">Réponse rapide garantie</h3>
               <div className="flex items-center mb-4">
                 <i className="fas fa-clock text-2xl mr-4"></i>
