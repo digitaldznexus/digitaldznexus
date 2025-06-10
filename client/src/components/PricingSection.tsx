@@ -137,7 +137,7 @@ export function PricingSection() {
           {pricingPlans.map((plan, index) => (
             <motion.div
               key={plan.name}
-              className={`card-hover bg-white rounded-2xl p-8 shadow-lg border ${
+              className={`card-hover bg-white rounded-2xl p-6 shadow-lg border ${
                 plan.popular ? 'border-blue-600 border-2 relative' : 
                 plan.isDiscovery ? 'border-green-500 border-2 relative bg-gradient-to-br from-green-50 to-white' :
                 'border-gray-100'
@@ -159,17 +159,17 @@ export function PricingSection() {
                 </div>
               )}
               
-              <div className="text-center mb-8">
-                <h3 className="font-montserrat font-bold text-2xl text-gray-800 mb-4">{plan.name}</h3>
-                <div className="text-4xl font-bold text-blue-600 mb-2">{plan.price}</div>
-                <p className="text-gray-600">{plan.description}</p>
+              <div className="text-center mb-6">
+                <h3 className="font-montserrat font-bold text-xl text-gray-800 mb-3">{plan.name}</h3>
+                <div className="text-3xl font-bold text-blue-600 mb-2">{plan.price}</div>
+                <p className="text-gray-600 text-sm">{plan.description}</p>
               </div>
               
-              <ul className="space-y-4 mb-8">
+              <ul className="space-y-3 mb-6">
                 {plan.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-center">
-                    <i className="fas fa-check text-green-500 mr-3"></i>
-                    <span>{feature}</span>
+                  <li key={featureIndex} className="flex items-start">
+                    <i className="fas fa-check text-green-500 mr-2 mt-1 text-sm"></i>
+                    <span className="text-sm">{feature}</span>
                   </li>
                 ))}
               </ul>
@@ -187,7 +187,9 @@ export function PricingSection() {
                 >
                   {plan.name === 'Pack Sur Mesure' ? 'Demander un devis' : 'Choisir ce pack'}
                 </button>
-                <p className="text-sm text-gray-600 mt-2">Paiement 3x: {plan.monthlyPayment}</p>
+                <p className="text-xs text-gray-600 mt-2">
+                  {plan.isDiscovery ? plan.monthlyPayment : `Paiement 3x: ${plan.monthlyPayment}`}
+                </p>
               </div>
             </motion.div>
           ))}
