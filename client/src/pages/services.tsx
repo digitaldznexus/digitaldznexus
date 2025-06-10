@@ -1,0 +1,28 @@
+import { Header } from '../components/Header';
+import { ServicesSection } from '../components/ServicesSection';
+import { Footer } from '../components/Footer';
+import { useScrollEffect } from '../hooks/useScrollEffect';
+
+export default function Services() {
+  const { isVisible, scrollToTop } = useScrollEffect();
+
+  return (
+    <div className="min-h-screen">
+      <Header />
+      <div className="pt-20">
+        <ServicesSection />
+      </div>
+      <Footer />
+      
+      {/* Back to Top Button */}
+      {isVisible && (
+        <button 
+          onClick={scrollToTop}
+          className="fixed bottom-8 right-8 bg-blue-600 text-white w-12 h-12 rounded-full shadow-lg hover:bg-green-500 transition-all duration-300 z-40"
+        >
+          <i className="fas fa-arrow-up"></i>
+        </button>
+      )}
+    </div>
+  );
+}

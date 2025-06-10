@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link, useLocation } from 'wouter';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { useHeaderScroll } from '../hooks/useScrollEffect';
 

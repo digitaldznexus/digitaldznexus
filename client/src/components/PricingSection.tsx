@@ -169,7 +169,7 @@ export function PricingSection() {
 
         {/* Special Offer */}
         <motion.div 
-          className="bg-gradient-to-r from-royal-blue to-accent-green rounded-2xl p-8 text-white text-center mb-16"
+          className="bg-gradient-to-r from-blue-600 to-green-500 rounded-2xl p-8 text-white text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -183,7 +183,7 @@ export function PricingSection() {
           </div>
           <button 
             onClick={scrollToContact}
-            className="inline-flex bg-white text-royal-blue px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300"
+            className="inline-flex bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300"
           >
             Profiter de l'offre
           </button>
