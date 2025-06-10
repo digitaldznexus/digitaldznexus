@@ -41,8 +41,18 @@ export class MemStorage implements IStorage {
   async createContact(insertContact: InsertContact): Promise<Contact> {
     const id = this.currentContactId++;
     const contact: Contact = { 
-      ...insertContact, 
       id,
+      firstName: insertContact.firstName,
+      lastName: insertContact.lastName,
+      email: insertContact.email,
+      phone: insertContact.phone,
+      company: insertContact.company || null,
+      projectType: insertContact.projectType,
+      budget: insertContact.budget || null,
+      timeline: insertContact.timeline || null,
+      description: insertContact.description || null,
+      contactMethods: insertContact.contactMethods || null,
+      availability: insertContact.availability || null,
       createdAt: new Date()
     };
     this.contacts.set(id, contact);
