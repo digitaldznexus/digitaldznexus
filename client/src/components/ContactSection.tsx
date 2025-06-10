@@ -226,7 +226,7 @@ export function ContactSection() {
                   exit={{ opacity: 0, x: -30 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <h3 className="font-montserrat font-bold text-xl text-dark-gray mb-6">Vos besoins</h3>
+                  <h3 className="font-montserrat font-bold text-xl text-gray-800 mb-6">Vos besoins</h3>
                   
                   <div>
                     <Label>Type de projet *</Label>
@@ -326,8 +326,8 @@ export function ContactSection() {
                     </Select>
                   </div>
                   
-                  <div className="bg-accent-green/10 rounded-lg p-4">
-                    <h4 className="font-semibold text-dark-gray mb-2">Nos engagements :</h4>
+                  <div className="bg-green-50 rounded-lg p-4">
+                    <h4 className="font-semibold text-gray-800 mb-2">Nos engagements :</h4>
                     <ul className="text-sm text-gray-600 space-y-1">
                       <li>✓ Réponse sous 24h</li>
                       <li>✓ Devis gratuit et détaillé</li>
@@ -385,52 +385,52 @@ export function ContactSection() {
           >
             {/* Contact Cards */}
             <div className="bg-white rounded-2xl p-6 shadow-lg">
-              <h3 className="font-montserrat font-bold text-xl text-dark-gray mb-6">Contactez-nous directement</h3>
+              <h3 className="font-montserrat font-bold text-xl text-gray-800 mb-6">Contactez-nous directement</h3>
               
               <div className="space-y-4">
                 <div className="flex items-center">
-                  <div className="w-12 h-12 bg-royal-blue/10 rounded-full flex items-center justify-center mr-4">
-                    <i className="fas fa-phone text-royal-blue"></i>
+                  <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center mr-4">
+                    <i className="fas fa-phone text-blue-600"></i>
                   </div>
                   <div>
-                    <p className="font-semibold text-dark-gray">Téléphone</p>
-                    <a href="tel:0666475367" className="text-royal-blue hover:text-accent-green transition-colors">
+                    <p className="font-semibold text-gray-800">Téléphone</p>
+                    <a href="tel:0666475367" className="text-blue-600 hover:text-green-500 transition-colors">
                       0666 47 53 67
                     </a>
                   </div>
                 </div>
                 
                 <div className="flex items-center">
-                  <div className="w-12 h-12 bg-accent-green/10 rounded-full flex items-center justify-center mr-4">
-                    <i className="fab fa-whatsapp text-accent-green"></i>
+                  <div className="w-12 h-12 bg-green-50 rounded-full flex items-center justify-center mr-4">
+                    <i className="fab fa-whatsapp text-green-500"></i>
                   </div>
                   <div>
-                    <p className="font-semibold text-dark-gray">WhatsApp Business</p>
-                    <a href="https://wa.me/213666475367" className="text-accent-green hover:text-royal-blue transition-colors">
+                    <p className="font-semibold text-gray-800">WhatsApp Business</p>
+                    <a href="https://wa.me/213666475367" className="text-green-500 hover:text-blue-600 transition-colors">
                       0666 47 53 67
                     </a>
                   </div>
                 </div>
                 
                 <div className="flex items-center">
-                  <div className="w-12 h-12 bg-royal-blue/10 rounded-full flex items-center justify-center mr-4">
-                    <i className="fas fa-envelope text-royal-blue"></i>
+                  <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center mr-4">
+                    <i className="fas fa-envelope text-blue-600"></i>
                   </div>
                   <div>
-                    <p className="font-semibold text-dark-gray">Email</p>
-                    <a href="mailto:digitaldznexus@gmail.com" className="text-royal-blue hover:text-accent-green transition-colors">
+                    <p className="font-semibold text-gray-800">Email</p>
+                    <a href="mailto:digitaldznexus@gmail.com" className="text-blue-600 hover:text-green-500 transition-colors">
                       digitaldznexus@gmail.com
                     </a>
                   </div>
                 </div>
                 
                 <div className="flex items-center">
-                  <div className="w-12 h-12 bg-accent-green/10 rounded-full flex items-center justify-center mr-4">
-                    <i className="fas fa-map-marker-alt text-accent-green"></i>
+                  <div className="w-12 h-12 bg-green-50 rounded-full flex items-center justify-center mr-4">
+                    <i className="fas fa-map-marker-alt text-green-500"></i>
                   </div>
                   <div>
-                    <p className="font-semibold text-dark-gray">Localisation</p>
-                    <p className="text-medium-gray">Avenue Khemisti, Mostaganem</p>
+                    <p className="font-semibold text-gray-800">Localisation</p>
+                    <p className="text-gray-600">Avenue Khemisti, Mostaganem</p>
                   </div>
                 </div>
               </div>
@@ -438,13 +438,13 @@ export function ContactSection() {
 
             {/* Office Image */}
             <div className="bg-white rounded-2xl p-6 shadow-lg">
-              <h3 className="font-montserrat font-bold text-xl text-dark-gray mb-4">Notre bureau</h3>
+              <h3 className="font-montserrat font-bold text-xl text-gray-800 mb-4">Notre bureau</h3>
               <img 
                 src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400" 
                 alt="Digital Nexus office in Mostaganem" 
                 className="w-full h-48 object-cover rounded-xl mb-4"
               />
-              <p className="text-medium-gray">Venez nous rendre visite pour discuter de votre projet autour d'un café.</p>
+              <p className="text-gray-600">Venez nous rendre visite pour discuter de votre projet autour d'un café.</p>
             </div>
 
             {/* Response Time */}
