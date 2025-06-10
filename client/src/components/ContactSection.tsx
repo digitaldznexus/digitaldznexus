@@ -444,11 +444,11 @@ export function ContactSection() {
                 alt="Digital Nexus office in Mostaganem" 
                 className="w-full h-48 object-cover rounded-xl mb-4"
               />
-              <p className="text-gray-600">Venez nous rendre visite pour discuter de votre projet autour d'un café.</p>
+              <p className="text-white/90">Venez nous rendre visite pour discuter de votre projet autour d'un café.</p>
             </div>
 
             {/* Response Time */}
-            <div className="bg-gradient-to-br from-blue-600 to-green-500 rounded-2xl p-6 text-white">
+            <div className="bg-gradient-to-br from-purple-600 to-orange-500 rounded-2xl p-6 text-white">
               <h3 className="font-montserrat font-bold text-xl mb-4">Réponse rapide garantie</h3>
               <div className="flex items-center mb-4">
                 <i className="fas fa-clock text-2xl mr-4"></i>
