@@ -1,14 +1,8 @@
 import { useTranslation } from 'react-i18next';
+import { Link } from 'wouter';
 
 export function Footer() {
   const { t } = useTranslation();
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   return (
     <footer className="bg-dark-gray text-white py-16">
@@ -17,7 +11,7 @@ export function Footer() {
           {/* Company Info */}
           <div>
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-10 h-10 bg-gradient-to-br from-royal-blue to-accent-green rounded-lg flex items-center justify-center">
+              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-green-500 rounded-lg flex items-center justify-center">
                 <span className="text-white font-montserrat font-bold text-lg">DN</span>
               </div>
               <span className="font-montserrat font-bold text-xl">Digital Nexus</span>
@@ -26,16 +20,16 @@ export function Footer() {
               Votre partenaire digital en Algérie pour transformer vos idées en réalités numériques performantes.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="w-10 h-10 bg-royal-blue/20 rounded-full flex items-center justify-center hover:bg-royal-blue transition-colors">
+              <a href="#" className="w-10 h-10 bg-blue-600/20 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
                 <i className="fab fa-facebook-f text-sm"></i>
               </a>
-              <a href="#" className="w-10 h-10 bg-royal-blue/20 rounded-full flex items-center justify-center hover:bg-royal-blue transition-colors">
+              <a href="#" className="w-10 h-10 bg-blue-600/20 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
                 <i className="fab fa-instagram text-sm"></i>
               </a>
-              <a href="#" className="w-10 h-10 bg-royal-blue/20 rounded-full flex items-center justify-center hover:bg-royal-blue transition-colors">
+              <a href="#" className="w-10 h-10 bg-blue-600/20 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
                 <i className="fab fa-linkedin-in text-sm"></i>
               </a>
-              <a href="https://wa.me/213666475367" className="w-10 h-10 bg-accent-green/20 rounded-full flex items-center justify-center hover:bg-accent-green transition-colors">
+              <a href="https://wa.me/213666475367" className="w-10 h-10 bg-green-500/20 rounded-full flex items-center justify-center hover:bg-green-500 transition-colors">
                 <i className="fab fa-whatsapp text-sm"></i>
               </a>
             </div>
@@ -45,12 +39,12 @@ export function Footer() {
           <div>
             <h3 className="font-montserrat font-bold text-lg mb-6">Nos Services</h3>
             <ul className="space-y-3 text-gray-300">
-              <li><button onClick={() => scrollToSection('services')} className="hover:text-accent-green transition-colors">Création Sites Web</button></li>
-              <li><button onClick={() => scrollToSection('services')} className="hover:text-accent-green transition-colors">E-commerce</button></li>
-              <li><button onClick={() => scrollToSection('services')} className="hover:text-accent-green transition-colors">Branding Digital</button></li>
-              <li><button onClick={() => scrollToSection('services')} className="hover:text-accent-green transition-colors">Formation WhatsApp</button></li>
-              <li><button onClick={() => scrollToSection('services')} className="hover:text-accent-green transition-colors">SEO & Marketing</button></li>
-              <li><button onClick={() => scrollToSection('services')} className="hover:text-accent-green transition-colors">Maintenance</button></li>
+              <li><Link href="/services" className="hover:text-green-500 transition-colors">Création Sites Web</Link></li>
+              <li><Link href="/services" className="hover:text-green-500 transition-colors">E-commerce</Link></li>
+              <li><Link href="/services" className="hover:text-green-500 transition-colors">Branding Digital</Link></li>
+              <li><Link href="/services" className="hover:text-green-500 transition-colors">Formation WhatsApp</Link></li>
+              <li><Link href="/services" className="hover:text-green-500 transition-colors">SEO & Marketing</Link></li>
+              <li><Link href="/services" className="hover:text-green-500 transition-colors">Maintenance</Link></li>
             </ul>
           </div>
 
@@ -58,12 +52,12 @@ export function Footer() {
           <div>
             <h3 className="font-montserrat font-bold text-lg mb-6">Liens Rapides</h3>
             <ul className="space-y-3 text-gray-300">
-              <li><button onClick={() => scrollToSection('hero')} className="hover:text-accent-green transition-colors">Accueil</button></li>
-              <li><button onClick={() => scrollToSection('portfolio')} className="hover:text-accent-green transition-colors">Portfolio</button></li>
-              <li><button onClick={() => scrollToSection('testimonials')} className="hover:text-accent-green transition-colors">Témoignages</button></li>
-              <li><button onClick={() => scrollToSection('pricing')} className="hover:text-accent-green transition-colors">Tarifs</button></li>
-              <li><button onClick={() => scrollToSection('contact')} className="hover:text-accent-green transition-colors">Contact</button></li>
-              <li><a href="#" className="hover:text-accent-green transition-colors">Blog</a></li>
+              <li><Link href="/" className="hover:text-green-500 transition-colors">Accueil</Link></li>
+              <li><Link href="/portfolio" className="hover:text-green-500 transition-colors">Portfolio</Link></li>
+              <li><Link href="/testimonials" className="hover:text-green-500 transition-colors">Témoignages</Link></li>
+              <li><Link href="/pricing" className="hover:text-green-500 transition-colors">Tarifs</Link></li>
+              <li><Link href="/contact" className="hover:text-green-500 transition-colors">Contact</Link></li>
+              <li><a href="#" className="hover:text-green-500 transition-colors">Blog</a></li>
             </ul>
           </div>
 
@@ -72,19 +66,19 @@ export function Footer() {
             <h3 className="font-montserrat font-bold text-lg mb-6">Contact</h3>
             <div className="space-y-4 text-gray-300">
               <div className="flex items-center">
-                <i className="fas fa-map-marker-alt w-5 mr-3 text-accent-green"></i>
+                <i className="fas fa-map-marker-alt w-5 mr-3 text-green-500"></i>
                 <span>Avenue Khemisti, Mostaganem</span>
               </div>
               <div className="flex items-center">
-                <i className="fas fa-phone w-5 mr-3 text-accent-green"></i>
-                <a href="tel:0666475367" className="hover:text-accent-green transition-colors">0666 47 53 67</a>
+                <i className="fas fa-phone w-5 mr-3 text-green-500"></i>
+                <a href="tel:0666475367" className="hover:text-green-500 transition-colors">0666 47 53 67</a>
               </div>
               <div className="flex items-center">
-                <i className="fas fa-envelope w-5 mr-3 text-accent-green"></i>
-                <a href="mailto:digitaldznexus@gmail.com" className="hover:text-accent-green transition-colors">digitaldznexus@gmail.com</a>
+                <i className="fas fa-envelope w-5 mr-3 text-green-500"></i>
+                <a href="mailto:digitaldznexus@gmail.com" className="hover:text-green-500 transition-colors">digitaldznexus@gmail.com</a>
               </div>
               <div className="flex items-center">
-                <i className="fas fa-clock w-5 mr-3 text-accent-green"></i>
+                <i className="fas fa-clock w-5 mr-3 text-green-500"></i>
                 <span>Lun-Ven: 9h-18h</span>
               </div>
             </div>

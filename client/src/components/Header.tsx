@@ -7,12 +7,21 @@ import { useHeaderScroll } from '../hooks/useScrollEffect';
 export function Header() {
   const { t } = useTranslation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [location] = useLocation();
   const isScrolled = useHeaderScroll();
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
+  const scrollToContact = () => {
+    if (location === '/') {
+      const element = document.getElementById('contact');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      window.location.href = '/#contact';
     }
     setIsMobileMenuOpen(false);
   };
@@ -22,33 +31,33 @@ export function Header() {
       <nav className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-royal-blue to-accent-green rounded-lg flex items-center justify-center">
+          <Link href="/" className="flex items-center space-x-3">
+            <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-green-500 rounded-lg flex items-center justify-center">
               <span className="text-white font-montserrat font-bold text-lg">DN</span>
             </div>
-            <span className="font-montserrat font-bold text-xl text-dark-gray">Digital Nexus</span>
-          </div>
+            <span className="font-montserrat font-bold text-xl text-gray-800">Digital Nexus</span>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
-            <button onClick={() => scrollToSection('hero')} className="text-gray-700 hover:text-royal-blue transition-colors">
+            <Link href="/" className={`text-gray-700 hover:text-blue-600 transition-colors ${location === '/' ? 'text-blue-600 font-semibold' : ''}`}>
               {t('nav.home')}
-            </button>
-            <button onClick={() => scrollToSection('services')} className="text-gray-700 hover:text-royal-blue transition-colors">
+            </Link>
+            <Link href="/services" className={`text-gray-700 hover:text-blue-600 transition-colors ${location === '/services' ? 'text-blue-600 font-semibold' : ''}`}>
               {t('nav.services')}
-            </button>
-            <button onClick={() => scrollToSection('portfolio')} className="text-gray-700 hover:text-royal-blue transition-colors">
+            </Link>
+            <Link href="/portfolio" className={`text-gray-700 hover:text-blue-600 transition-colors ${location === '/portfolio' ? 'text-blue-600 font-semibold' : ''}`}>
               {t('nav.portfolio')}
-            </button>
-            <button onClick={() => scrollToSection('testimonials')} className="text-gray-700 hover:text-royal-blue transition-colors">
+            </Link>
+            <Link href="/testimonials" className={`text-gray-700 hover:text-blue-600 transition-colors ${location === '/testimonials' ? 'text-blue-600 font-semibold' : ''}`}>
               {t('nav.testimonials')}
-            </button>
-            <button onClick={() => scrollToSection('pricing')} className="text-gray-700 hover:text-royal-blue transition-colors">
+            </Link>
+            <Link href="/pricing" className={`text-gray-700 hover:text-blue-600 transition-colors ${location === '/pricing' ? 'text-blue-600 font-semibold' : ''}`}>
               {t('nav.pricing')}
-            </button>
-            <button onClick={() => scrollToSection('contact')} className="text-gray-700 hover:text-royal-blue transition-colors">
+            </Link>
+            <Link href="/contact" className={`text-gray-700 hover:text-blue-600 transition-colors ${location === '/contact' ? 'text-blue-600 font-semibold' : ''}`}>
               {t('nav.contact')}
-            </button>
+            </Link>
           </div>
 
           {/* Language Switcher & CTA */}
@@ -56,8 +65,8 @@ export function Header() {
             <LanguageSwitcher />
             
             <button 
-              onClick={() => scrollToSection('contact')}
-              className="hidden lg:inline-flex btn-primary text-white px-6 py-2 rounded-full font-medium"
+              onClick={scrollToContact}
+              className="hidden lg:inline-flex bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-6 py-2 rounded-full font-medium transition-all duration-300"
             >
               {t('nav.getQuote')}
             </button>
@@ -77,27 +86,27 @@ export function Header() {
       {isMobileMenuOpen && (
         <div className="lg:hidden bg-white border-t border-gray-100">
           <div className="container mx-auto px-4 py-4 space-y-4">
-            <button onClick={() => scrollToSection('hero')} className="block text-gray-700 hover:text-royal-blue transition-colors">
+            <Link href="/" onClick={closeMobileMenu} className={`block text-gray-700 hover:text-blue-600 transition-colors ${location === '/' ? 'text-blue-600 font-semibold' : ''}`}>
               {t('nav.home')}
-            </button>
-            <button onClick={() => scrollToSection('services')} className="block text-gray-700 hover:text-royal-blue transition-colors">
+            </Link>
+            <Link href="/services" onClick={closeMobileMenu} className={`block text-gray-700 hover:text-blue-600 transition-colors ${location === '/services' ? 'text-blue-600 font-semibold' : ''}`}>
               {t('nav.services')}
-            </button>
-            <button onClick={() => scrollToSection('portfolio')} className="block text-gray-700 hover:text-royal-blue transition-colors">
+            </Link>
+            <Link href="/portfolio" onClick={closeMobileMenu} className={`block text-gray-700 hover:text-blue-600 transition-colors ${location === '/portfolio' ? 'text-blue-600 font-semibold' : ''}`}>
               {t('nav.portfolio')}
-            </button>
-            <button onClick={() => scrollToSection('testimonials')} className="block text-gray-700 hover:text-royal-blue transition-colors">
+            </Link>
+            <Link href="/testimonials" onClick={closeMobileMenu} className={`block text-gray-700 hover:text-blue-600 transition-colors ${location === '/testimonials' ? 'text-blue-600 font-semibold' : ''}`}>
               {t('nav.testimonials')}
-            </button>
-            <button onClick={() => scrollToSection('pricing')} className="block text-gray-700 hover:text-royal-blue transition-colors">
+            </Link>
+            <Link href="/pricing" onClick={closeMobileMenu} className={`block text-gray-700 hover:text-blue-600 transition-colors ${location === '/pricing' ? 'text-blue-600 font-semibold' : ''}`}>
               {t('nav.pricing')}
-            </button>
-            <button onClick={() => scrollToSection('contact')} className="block text-gray-700 hover:text-royal-blue transition-colors">
+            </Link>
+            <Link href="/contact" onClick={closeMobileMenu} className={`block text-gray-700 hover:text-blue-600 transition-colors ${location === '/contact' ? 'text-blue-600 font-semibold' : ''}`}>
               {t('nav.contact')}
-            </button>
+            </Link>
             <button 
-              onClick={() => scrollToSection('contact')}
-              className="inline-flex btn-primary text-white px-6 py-2 rounded-full font-medium"
+              onClick={scrollToContact}
+              className="inline-flex bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-6 py-2 rounded-full font-medium transition-all duration-300"
             >
               {t('nav.getQuote')}
             </button>
