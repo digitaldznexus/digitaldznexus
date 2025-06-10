@@ -5,7 +5,7 @@ export function Footer() {
   const { t } = useTranslation();
 
   return (
-    <footer className="bg-dark-gray text-white py-16">
+    <footer className="bg-gray-800 text-white py-16">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Company Info */}
@@ -92,9 +92,9 @@ export function Footer() {
               © 2024 Digital Nexus. Tous droits réservés.
             </p>
             <div className="flex space-x-6 text-sm text-gray-400">
-              <a href="#" className="hover:text-accent-green transition-colors">Politique de confidentialité</a>
-              <a href="#" className="hover:text-accent-green transition-colors">Conditions d'utilisation</a>
-              <a href="#" className="hover:text-accent-green transition-colors">Mentions légales</a>
+              <a href="#" className="hover:text-green-500 transition-colors">Politique de confidentialité</a>
+              <a href="#" className="hover:text-green-500 transition-colors">Conditions d'utilisation</a>
+              <a href="#" className="hover:text-green-500 transition-colors">Mentions légales</a>
             </div>
           </div>
         </div>

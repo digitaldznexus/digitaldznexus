@@ -43,12 +43,12 @@ export function TestimonialsSection() {
   }, [testimonials.length]);
 
   return (
-    <section id="testimonials" className="py-16 lg:py-24 bg-light-gray">
+    <section id="testimonials" className="py-16 lg:py-24 bg-gray-50">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
           <motion.h2 
-            className="font-montserrat font-bold text-3xl md:text-4xl lg:text-5xl text-dark-gray mb-6"
+            className="font-montserrat font-bold text-3xl md:text-4xl lg:text-5xl text-gray-800 mb-6"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}

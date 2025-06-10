@@ -10,7 +10,7 @@ export function ServicesSection() {
       title: t('services.websiteCreation.title'),
       description: t('services.websiteCreation.description'),
       price: t('services.websiteCreation.price'),
-      gradient: 'from-royal-blue to-accent-green',
+      gradient: 'from-blue-600 to-green-500',
       href: '#pricing'
     },
     {
@@ -18,7 +18,7 @@ export function ServicesSection() {
       title: t('services.whatsappTraining.title'),
       description: t('services.whatsappTraining.description'),
       status: t('services.whatsappTraining.status'),
-      gradient: 'from-accent-green to-royal-blue',
+      gradient: 'from-green-500 to-blue-600',
       href: '#contact'
     },
     {
@@ -26,7 +26,7 @@ export function ServicesSection() {
       title: t('services.branding.title'),
       description: t('services.branding.description'),
       status: t('services.branding.status'),
-      gradient: 'from-royal-blue to-accent-green',
+      gradient: 'from-blue-600 to-green-500',
       href: '#contact'
     },
     {
@@ -34,7 +34,7 @@ export function ServicesSection() {
       title: 'SEO & Marketing Digital',
       description: 'Optimisation pour les moteurs de recherche et stratégies marketing pour booster votre visibilité.',
       price: 'Sur devis',
-      gradient: 'from-accent-green to-royal-blue',
+      gradient: 'from-green-500 to-blue-600',
       href: '#contact'
     },
     {
@@ -42,7 +42,7 @@ export function ServicesSection() {
       title: 'Maintenance & Support',
       description: 'Support technique continu, mises à jour et maintenance préventive pour votre tranquillité d\'esprit.',
       price: 'Inclus',
-      gradient: 'from-royal-blue to-accent-green',
+      gradient: 'from-blue-600 to-green-500',
       href: '#pricing'
     },
     {
@@ -50,7 +50,7 @@ export function ServicesSection() {
       title: 'Consultation Digital',
       description: 'Audit de votre présence digitale et conseils personnalisés pour optimiser votre stratégie.',
       price: 'Gratuit',
-      gradient: 'from-accent-green to-royal-blue',
+      gradient: 'from-green-500 to-blue-600',
       href: '#contact'
     }
   ];
@@ -63,12 +63,12 @@ export function ServicesSection() {
   };
 
   return (
-    <section id="services" className="py-16 lg:py-24 bg-light-gray">
+    <section id="services" className="py-16 lg:py-24 bg-gray-50">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
           <motion.h2 
-            className="font-montserrat font-bold text-3xl md:text-4xl lg:text-5xl text-dark-gray mb-6"
+            className="font-montserrat font-bold text-3xl md:text-4xl lg:text-5xl text-gray-800 mb-6"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -77,7 +77,7 @@ export function ServicesSection() {
             {t('services.title')}
           </motion.h2>
           <motion.p 
-            className="text-xl text-medium-gray max-w-3xl mx-auto"
+            className="text-xl text-gray-600 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -102,15 +102,15 @@ export function ServicesSection() {
               <div className={`w-16 h-16 bg-gradient-to-br ${service.gradient} rounded-xl flex items-center justify-center mb-6`}>
                 <i className={`${service.icon} text-white text-2xl`}></i>
               </div>
-              <h3 className="font-montserrat font-bold text-xl text-dark-gray mb-4">{service.title}</h3>
-              <p className="text-medium-gray mb-6">{service.description}</p>
+              <h3 className="font-montserrat font-bold text-xl text-gray-800 mb-4">{service.title}</h3>
+              <p className="text-gray-600 mb-6">{service.description}</p>
               <div className="flex items-center justify-between">
-                <span className={`font-semibold ${service.price ? 'text-royal-blue' : 'text-accent-green'}`}>
+                <span className={`font-semibold ${service.price ? 'text-blue-600' : 'text-green-500'}`}>
                   {service.price || service.status}
                 </span>
                 <button 
                   onClick={() => scrollToSection(service.href)}
-                  className="text-royal-blue hover:text-accent-green transition-colors"
+                  className="text-blue-600 hover:text-green-500 transition-colors"
                 >
                   <i className="fas fa-arrow-right"></i>
                 </button>
