@@ -69,12 +69,12 @@ export function PortfolioSection() {
     : projects.filter(project => project.category === activeFilter);
 
   return (
-    <section id="portfolio" className="py-16 lg:py-24">
+    <section id="portfolio" className="py-16 lg:py-24 bg-gradient-to-br from-purple-600 via-blue-600 to-orange-500">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
           <motion.h2 
-            className="font-montserrat font-bold text-3xl md:text-4xl lg:text-5xl text-dark-gray mb-6"
+            className="font-montserrat font-bold text-3xl md:text-4xl lg:text-5xl text-white mb-6"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -83,7 +83,7 @@ export function PortfolioSection() {
             Nos Réalisations
           </motion.h2>
           <motion.p 
-            className="text-xl text-medium-gray max-w-3xl mx-auto mb-8"
+            className="text-xl text-white/90 max-w-3xl mx-auto mb-8"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -106,8 +106,8 @@ export function PortfolioSection() {
                 onClick={() => setActiveFilter(filter.id)}
                 className={`px-6 py-2 rounded-full font-medium transition-all ${
                   activeFilter === filter.id
-                    ? 'bg-purple-600 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-purple-600 hover:text-white'
+                    ? 'bg-white text-purple-600'
+                    : 'bg-white/20 text-white hover:bg-white hover:text-purple-600'
                 }`}
               >
                 {filter.label}
