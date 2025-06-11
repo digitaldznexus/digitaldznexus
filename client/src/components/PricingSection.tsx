@@ -1,6 +1,11 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Navigation, Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
 export function PricingSection() {
   const { t } = useTranslation();
@@ -132,15 +137,15 @@ export function PricingSection() {
           </motion.p>
         </div>
 
-        {/* Pricing Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        {/* Pricing Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {pricingPlans.map((plan, index) => (
             <motion.div
               key={plan.name}
-              className={`card-hover bg-white rounded-2xl p-6 shadow-lg border ${
-                plan.popular ? 'border-purple-600 border-2 relative' : 
-                plan.isDiscovery ? 'border-orange-500 border-2 relative bg-gradient-to-br from-orange-50 to-white' :
-                'border-gray-100'
+              className={`relative rounded-2xl p-6 w-full ${
+                plan.popular ? 'bg-gradient-to-br from-blue-600 to-indigo-700 text-white shadow-xl' : 
+                plan.isDiscovery ? 'bg-gradient-to-br from-orange-50 to-white text-gray-900 shadow-lg' :
+                'bg-white text-gray-900 shadow-lg'
               }`}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -149,16 +154,15 @@ export function PricingSection() {
               whileHover={{ y: -8 }}
             >
               {plan.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-purple-600 text-white px-6 py-2 rounded-full text-sm font-semibold">
+                <span className="absolute top-0 right-0 bg-orange-500 text-white px-4 py-1 rounded-bl-lg rounded-tr-lg text-sm font-medium">
                   Le plus populaire
-                </div>
+                </span>
               )}
               {plan.isDiscovery && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-orange-500 text-white px-6 py-2 rounded-full text-sm font-semibold">
+                <span className="absolute top-0 right-0 bg-orange-500 text-white px-4 py-1 rounded-bl-lg rounded-tr-lg text-sm font-medium">
                   Offre de test
-                </div>
+                </span>
               )}
-              
               <div className="text-center mb-6">
                 <h3 className="font-montserrat font-bold text-xl text-gray-800 mb-3">{plan.name}</h3>
                 <div className="text-3xl font-bold text-purple-600 mb-2">{plan.price}</div>
@@ -168,7 +172,7 @@ export function PricingSection() {
               <ul className="space-y-3 mb-6">
                 {plan.features.map((feature, featureIndex) => (
                   <li key={featureIndex} className="flex items-start">
-                    <i className="fas fa-check text-orange-500 mr-2 mt-1 text-sm"></i>
+                    <i className={`fas fa-check ${plan.popular ? 'text-orange-300' : plan.isDiscovery ? 'text-orange-500' : 'text-green-500'} mr-2 mt-1 text-sm`}></i>
                     <span className="text-sm">{feature}</span>
                   </li>
                 ))}
