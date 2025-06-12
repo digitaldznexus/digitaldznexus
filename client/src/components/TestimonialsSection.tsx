@@ -15,37 +15,43 @@ export function TestimonialsSection() {
   const testimonials = [
     {
       id: 1,
-      name: 'Ahmed Benali',
-      position: 'Directeur, EliteShop',
-      content: 'Digital Nexus a transformé notre présence en ligne. Notre site e-commerce génère maintenant 3 fois plus de ventes qu\'avant. L\'équipe est professionnelle et à l\'écoute.',
+      name: t('testimonials.testimonials.eliteshop.name'),
+      position: t('testimonials.testimonials.eliteshop.position'),
+      content: t('testimonials.testimonials.eliteshop.content'),
       image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=150&h=150',
       logo: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=200'
     },
     {
       id: 2,
-      name: "Sarah Martinez",
-      role: "Directrice Marketing, AgenceDigitale+",
+      name: t('testimonials.testimonials.agencedigitale.name'),
+      position: t('testimonials.testimonials.agencedigitale.position'),
+      content: t('testimonials.testimonials.agencedigitale.content'),
       image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=150&h=150&q=80",
-      logo: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=200",
-      content: "Digital Nexus a révolutionné notre approche marketing. Leur expertise en stratégie digitale et leur créativité ont permis d'augmenter notre visibilité en ligne de 200% en seulement 3 mois. Un partenaire de confiance que je recommande vivement !"
+      logo: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=200"
     },
     {
       id: 3,
-      name: 'Karim Yasmine',
-      position: 'Propriétaire, Restaurant Yasmine',
-      content: 'L\'identité visuelle créée par Digital Nexus a donné une nouvelle dimension à notre restaurant. Nos menus digitaux et notre présence en ligne attirent de nombreux clients.',
+      name: t('testimonials.testimonials.yasmine.name'),
+      position: t('testimonials.testimonials.yasmine.position'),
+      content: t('testimonials.testimonials.yasmine.content'),
       image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=150&h=150',
       logo: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=200'
     }
   ];
 
   return (
-    <section id="testimonials" className="py-16 lg:py-24 bg-gradient-to-br from-purple-600 via-blue-600 to-orange-500">
+    <section id="testimonials" className="relative py-20 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 overflow-hidden">
+      {/* Bulles colorées floues en arrière-plan */}
+      <div className="absolute inset-0 pointer-events-none -z-10">
+        <div className="absolute top-0 left-0 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-orange-500/10 rounded-full blur-3xl"></div>
+      </div>
       <div className="container mx-auto px-4 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
           <motion.h2 
-            className="font-montserrat font-bold text-3xl md:text-4xl lg:text-5xl text-white mb-6"
+            className="font-playfair font-bold text-3xl md:text-4xl lg:text-5xl text-white mb-6"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -54,7 +60,7 @@ export function TestimonialsSection() {
             {t('testimonials.title')}
           </motion.h2>
           <motion.p 
-            className="text-xl text-white/90 max-w-3xl mx-auto"
+            className="text-xl text-white/80 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -81,7 +87,7 @@ export function TestimonialsSection() {
             <SwiperSlide key={testimonial.id}>
               <div className="grid lg:grid-cols-2 gap-12 items-center">
                 <motion.div 
-                  className="bg-white rounded-2xl p-8 shadow-lg"
+                  className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 shadow-lg"
                   initial={{ opacity: 0, x: -30 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6 }}
@@ -92,7 +98,7 @@ export function TestimonialsSection() {
                       <i key={i} className="fas fa-star"></i>
                     ))}
                   </div>
-                  <blockquote className="text-lg text-gray-700 mb-6 italic">
+                  <blockquote className="text-lg text-white/80 mb-6 italic">
                     "{testimonial.content}"
                   </blockquote>
                   <div className="flex items-center">
@@ -102,12 +108,12 @@ export function TestimonialsSection() {
                       className="w-12 h-12 rounded-full object-cover mr-4"
                     />
                     <div>
-                      <h4 className="font-semibold text-gray-800">{testimonial.name}</h4>
-                      <p className="text-gray-600 text-sm">{testimonial.position}</p>
+                      <h4 className="font-semibold text-white">{testimonial.name}</h4>
+                      <p className="text-white/60 text-sm">{testimonial.position}</p>
                     </div>
                   </div>
                 </motion.div>
-                <motion.div
+                <motion.div 
                   className="relative aspect-video rounded-2xl overflow-hidden shadow-lg"
                   initial={{ opacity: 0, x: 30 }}
                   whileInView={{ opacity: 1, x: 0 }}

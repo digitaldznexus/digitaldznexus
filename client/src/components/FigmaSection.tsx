@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation, Autoplay } from 'swiper/modules';
 import 'swiper/css';
@@ -6,36 +7,38 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 export function FigmaSection() {
+  const { t } = useTranslation();
+
   const figmaProjects = [
     {
       id: 1,
-      category: "Maquettes Web",
-      title: "Design System Digital Nexus",
-      description: "Notre système de design complet avec composants, styles et guidelines",
+      category: t('figma.projects.designSystem.category'),
+      title: t('figma.projects.designSystem.title'),
+      description: t('figma.projects.designSystem.description'),
       embedUrl: "https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/file/YOUR_FILE_ID/DigitalNexus-Design-System",
       preview: "/images/figma/design-system-preview.jpg"
     },
     {
       id: 2,
-      category: "UI Kit",
-      title: "Composants Réutilisables",
-      description: "Bibliothèque de composants UI modernes et personnalisables",
+      category: t('figma.projects.uiKit.category'),
+      title: t('figma.projects.uiKit.title'),
+      description: t('figma.projects.uiKit.description'),
       embedUrl: "https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/file/YOUR_FILE_ID/UI-Components",
       preview: "/images/figma/ui-kit-preview.jpg"
     },
     {
       id: 3,
-      category: "Études de Cas",
-      title: "Refonte E-commerce",
-      description: "Processus complet de redesign d'une plateforme e-commerce",
+      category: t('figma.projects.ecommerce.category'),
+      title: t('figma.projects.ecommerce.title'),
+      description: t('figma.projects.ecommerce.description'),
       embedUrl: "https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/file/YOUR_FILE_ID/Ecommerce-Redesign",
       preview: "/images/figma/ecommerce-preview.jpg"
     },
     {
       id: 4,
-      category: "Prototypes",
-      title: "Application Mobile",
-      description: "Prototype interactif d'une application de livraison",
+      category: t('figma.projects.mobileApp.category'),
+      title: t('figma.projects.mobileApp.title'),
+      description: t('figma.projects.mobileApp.description'),
       embedUrl: "https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/file/YOUR_FILE_ID/Mobile-App",
       preview: "/images/figma/mobile-preview.jpg"
     }
@@ -52,7 +55,7 @@ export function FigmaSection() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            Notre Processus de Design
+            {t('figma.title')}
           </motion.h2>
           <motion.p 
             className="text-xl text-gray-600 max-w-3xl mx-auto"
@@ -61,7 +64,7 @@ export function FigmaSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            Découvrez notre approche du design à travers nos projets Figma
+            {t('figma.subtitle')}
           </motion.p>
         </div>
 
@@ -74,7 +77,7 @@ export function FigmaSection() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              Notre Processus
+              {t('figma.process.title')}
             </motion.h3>
             <motion.div 
               className="space-y-4"
@@ -88,8 +91,8 @@ export function FigmaSection() {
                   1
                 </div>
                 <div>
-                  <h4 className="font-montserrat font-semibold text-lg mb-2">Recherche & Wireframes</h4>
-                  <p className="text-gray-600">Nous commençons par comprendre vos besoins et créer des wireframes pour structurer l'information.</p>
+                  <h4 className="font-montserrat font-semibold text-lg mb-2">{t('figma.process.steps.research.title')}</h4>
+                  <p className="text-gray-600">{t('figma.process.steps.research.description')}</p>
                 </div>
               </div>
               <div className="flex items-start">
@@ -97,8 +100,8 @@ export function FigmaSection() {
                   2
                 </div>
                 <div>
-                  <h4 className="font-montserrat font-semibold text-lg mb-2">Design UI/UX</h4>
-                  <p className="text-gray-600">Création d'interfaces modernes et intuitives en suivant les dernières tendances.</p>
+                  <h4 className="font-montserrat font-semibold text-lg mb-2">{t('figma.process.steps.design.title')}</h4>
+                  <p className="text-gray-600">{t('figma.process.steps.design.description')}</p>
                 </div>
               </div>
               <div className="flex items-start">
@@ -106,8 +109,8 @@ export function FigmaSection() {
                   3
                 </div>
                 <div>
-                  <h4 className="font-montserrat font-semibold text-lg mb-2">Prototypage</h4>
-                  <p className="text-gray-600">Création de prototypes interactifs pour tester l'expérience utilisateur.</p>
+                  <h4 className="font-montserrat font-semibold text-lg mb-2">{t('figma.process.steps.prototype.title')}</h4>
+                  <p className="text-gray-600">{t('figma.process.steps.prototype.description')}</p>
                 </div>
               </div>
               <div className="flex items-start">
@@ -115,8 +118,8 @@ export function FigmaSection() {
                   4
                 </div>
                 <div>
-                  <h4 className="font-montserrat font-semibold text-lg mb-2">Développement</h4>
-                  <p className="text-gray-600">Transformation des designs en sites web et applications fonctionnels.</p>
+                  <h4 className="font-montserrat font-semibold text-lg mb-2">{t('figma.process.steps.development.title')}</h4>
+                  <p className="text-gray-600">{t('figma.process.steps.development.description')}</p>
                 </div>
               </div>
             </motion.div>
@@ -131,7 +134,7 @@ export function FigmaSection() {
           >
             <img 
               src="/images/figma/process-illustration.svg" 
-              alt="Processus de design" 
+              alt={t('figma.process.illustrationAlt')}
               className="w-full h-auto rounded-xl shadow-lg"
             />
           </motion.div>
@@ -188,7 +191,7 @@ export function FigmaSection() {
                         // Ouvrir le projet Figma dans une nouvelle fenêtre ou modal
                       }}
                     >
-                      Voir le projet <i className="fas fa-arrow-right ml-2"></i>
+                      {t('figma.viewProject')} <i className="fas fa-arrow-right ml-2"></i>
                     </button>
                   </div>
                 </motion.div>

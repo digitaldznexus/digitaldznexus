@@ -53,8 +53,8 @@ app.use((req, res, next) => {
     serveStatic(app);
   }
 
-  const port = 3000;
-  server.listen(port, 'localhost', () => {
+  const port = process.env.PORT || 3000;
+  server.listen(port, () => {
     log(`Server running at http://localhost:${port}`);
   });
 })();

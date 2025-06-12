@@ -41,35 +41,31 @@ export function Header() {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
             <Link href="/" className={`text-white hover:text-[#F97316] transition-colors ${location === '/' ? 'text-[#F97316] font-semibold' : ''}`}>
-              {t('nav.home')}
+              {t('nav.home').toUpperCase()}
             </Link>
             <Link href="/services" className={`text-white hover:text-[#F97316] transition-colors ${location === '/services' ? 'text-[#F97316] font-semibold' : ''}`}>
-              {t('nav.services')}
+              {t('nav.services').toUpperCase()}
             </Link>
             <Link href="/portfolio" className={`text-white hover:text-[#F97316] transition-colors ${location === '/portfolio' ? 'text-[#F97316] font-semibold' : ''}`}>
-              {t('nav.portfolio')}
+              {t('nav.portfolio').toUpperCase()}
             </Link>
             <Link href="/testimonials" className={`text-white hover:text-[#F97316] transition-colors ${location === '/testimonials' ? 'text-[#F97316] font-semibold' : ''}`}>
-              {t('nav.testimonials')}
+              {t('nav.testimonials').toUpperCase()}
             </Link>
             <Link href="/pricing" className={`text-white hover:text-[#F97316] transition-colors ${location === '/pricing' ? 'text-[#F97316] font-semibold' : ''}`}>
-              {t('nav.pricing')}
+              {t('nav.pricing').toUpperCase()}
             </Link>
-            <Link href="/contact" className={`text-white hover:text-[#F97316] transition-colors ${location === '/contact' ? 'text-[#F97316] font-semibold' : ''}`}>
-              {t('nav.contact')}
+            <Link
+              href="/contact"
+              className="ml-4 px-6 py-2 rounded-full bg-gradient-to-r from-orange-400 to-orange-500 text-white font-bold shadow-lg hover:from-orange-500 hover:to-yellow-300 transition-all duration-300 border-2 border-white/10"
+            >
+              {t('nav.getQuote').toUpperCase()}
             </Link>
           </div>
 
           {/* Language Switcher & CTA */}
           <div className="flex items-center space-x-4">
             <LanguageSwitcher />
-            
-            <button
-              onClick={scrollToContact}
-              className="hidden lg:inline-flex bg-[#F97316] hover:bg-[#ea580c] text-white px-6 py-2 rounded-lg font-medium transition-all duration-300"
-            >
-              {t('nav.getQuote')}
-            </button>
             
             {/* Mobile Menu Toggle */}
             <button 
@@ -81,37 +77,37 @@ export function Header() {
           </div>
         </div>
 
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
           <div className="lg:hidden bg-[#111111] border-t border-gray-800">
-            <div className="container mx-auto px-4 py-4 space-y-4">
+          <div className="container mx-auto px-4 py-4 space-y-4">
               <Link href="/" onClick={closeMobileMenu} className={`block text-white hover:text-[#F97316] transition-colors ${location === '/' ? 'text-[#F97316] font-semibold' : ''}`}>
-                {t('nav.home')}
+                {t('nav.home').toUpperCase()}
               </Link>
               <Link href="/services" onClick={closeMobileMenu} className={`block text-white hover:text-[#F97316] transition-colors ${location === '/services' ? 'text-[#F97316] font-semibold' : ''}`}>
-                {t('nav.services')}
-              </Link>
+              {t('nav.services').toUpperCase()}
+            </Link>
               <Link href="/portfolio" onClick={closeMobileMenu} className={`block text-white hover:text-[#F97316] transition-colors ${location === '/portfolio' ? 'text-[#F97316] font-semibold' : ''}`}>
-                {t('nav.portfolio')}
-              </Link>
+              {t('nav.portfolio').toUpperCase()}
+            </Link>
               <Link href="/testimonials" onClick={closeMobileMenu} className={`block text-white hover:text-[#F97316] transition-colors ${location === '/testimonials' ? 'text-[#F97316] font-semibold' : ''}`}>
-                {t('nav.testimonials')}
-              </Link>
+              {t('nav.testimonials').toUpperCase()}
+            </Link>
               <Link href="/pricing" onClick={closeMobileMenu} className={`block text-white hover:text-[#F97316] transition-colors ${location === '/pricing' ? 'text-[#F97316] font-semibold' : ''}`}>
-                {t('nav.pricing')}
-              </Link>
+              {t('nav.pricing').toUpperCase()}
+            </Link>
               <Link href="/contact" onClick={closeMobileMenu} className={`block text-white hover:text-[#F97316] transition-colors ${location === '/contact' ? 'text-[#F97316] font-semibold' : ''}`}>
-                {t('nav.contact')}
-              </Link>
-              <button 
-                onClick={scrollToContact}
-                className="w-full bg-[#F97316] hover:bg-[#ea580c] text-white px-6 py-2 rounded-lg font-medium transition-all duration-300"
-              >
-                {t('nav.getQuote')}
-              </button>
-            </div>
+              {t('nav.contact').toUpperCase()}
+            </Link>
+            <Link
+              href="/contact"
+              className="w-full bg-[#F97316] hover:bg-[#ea580c] text-white px-6 py-2 rounded-lg font-medium transition-all duration-300"
+            >
+              {t('nav.getQuote')}
+            </Link>
           </div>
-        )}
+        </div>
+      )}
       </nav>
     </header>
   );

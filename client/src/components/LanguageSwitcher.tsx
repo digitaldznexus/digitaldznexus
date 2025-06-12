@@ -1,39 +1,56 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+
+const flags = {
+  fr: '🇫🇷',
+  en: '🇬🇧',
+};
+
+const languages = [
+  { code: 'fr', label: 'FR' },
+  { code: 'en', label: 'ENG' },
+];
 
 export function LanguageSwitcher() {
   const { i18n } = useTranslation();
-  const [currentLang, setCurrentLang] = useState(i18n.language);
+  const [open, setOpen] = useState(false);
+  const currentLang = i18n.language.startsWith('en') ? 'en' : 'fr';
 
   const switchLanguage = (lang: string) => {
     i18n.changeLanguage(lang);
-    setCurrentLang(lang);
     document.documentElement.lang = lang;
     document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    setOpen(false);
   };
 
   return (
-    <div className="flex items-center bg-gray-100 rounded-full p-1">
+    <div className="relative inline-block text-left z-50">
       <button
-        onClick={() => switchLanguage('fr')}
-        className={`px-3 py-1 rounded-full text-sm font-medium transition-all ${
-          currentLang === 'fr'
-            ? 'bg-purple-600 text-white'
-            : 'text-gray-600 hover:bg-purple-50'
-        }`}
+        onClick={() => setOpen((v) => !v)}
+        className="flex items-center gap-2 px-4 py-2 rounded-2xl bg-white/30 backdrop-blur-md hover:bg-white/60 shadow-lg border border-white/30 font-semibold text-gray-900 transition-all focus:outline-none focus:ring-2 focus:ring-purple-400 drop-shadow-lg"
+        aria-haspopup="listbox"
+        aria-expanded={open}
+        style={{ minWidth: 60 }}
       >
-        FR
+        <span className="font-inter text-base font-bold">{languages.find(l => l.code === currentLang)?.label}</span>
+        <svg className="w-4 h-4 ml-1 text-purple-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
       </button>
-      <button
-        onClick={() => switchLanguage('ar')}
-        className={`px-3 py-1 rounded-full text-sm font-medium transition-all ${
-          currentLang === 'ar'
-            ? 'bg-purple-600 text-white'
-            : 'text-gray-600 hover:bg-purple-50'
-        }`}
-      >
-        AR
-      </button>
+      {open && (
+        <ul className="absolute right-0 mt-2 w-28 bg-white/80 backdrop-blur-md rounded-2xl shadow-2xl border border-white/30 py-2 animate-slide-up origin-top-right" role="listbox" style={{zIndex:99}}>
+          {languages.map((lang) => (
+            <li key={lang.code}>
+              <button
+                onClick={() => switchLanguage(lang.code)}
+                className={`w-full flex items-center gap-2 px-4 py-2 text-left rounded-xl transition-all font-inter text-base hover:bg-purple-100/80 hover:text-purple-700 ${currentLang === lang.code ? 'bg-purple-200/80 font-bold text-purple-900' : 'text-gray-800'}`}
+                role="option"
+                aria-selected={currentLang === lang.code}
+              >
+                <span>{lang.label}</span>
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }

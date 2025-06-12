@@ -7,84 +7,68 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
+interface PricingPlan {
+  name: string;
+  price: string;
+  description: string;
+  features: string[];
+  monthlyPayment: string;
+  popular: boolean;
+  isDiscovery?: boolean;
+}
+
+interface CalculatorService {
+  id: string;
+  name: string;
+  price: number;
+}
+
 export function PricingSection() {
   const { t } = useTranslation();
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
 
-  const pricingPlans = [
+  const pricingPlans: PricingPlan[] = [
     {
-      name: 'Offre Découverte',
-      price: '15k DZ',
-      description: 'Parfait pour tester nos services',
-      features: [
-        'Site 1 page responsive',
-        'Design moderne et attractif',
-        'Hébergement 6 mois inclus',
-        'Domaine .dz inclus',
-        'Formulaire de contact',
-        'Optimisation mobile',
-        'Support 1 mois'
-      ],
-      monthlyPayment: '15k DZ comptant',
+      name: t('pricing.plans.discovery.name'),
+      price: t('pricing.plans.discovery.price'),
+      description: t('pricing.plans.discovery.description'),
+      features: t('pricing.plans.discovery.features', { returnObjects: true }) as string[],
+      monthlyPayment: t('pricing.plans.discovery.monthlyPayment'),
       popular: false,
       isDiscovery: true
     },
     {
-      name: 'Pack Starter',
-      price: '30k - 50k DZ',
-      description: 'Site vitrine basique',
-      features: [
-        '3 à 5 pages',
-        'Template moderne',
-        'Hébergement + domaine .dz 1 an',
-        'Design responsive',
-        'Formulaire de contact',
-        'SEO basique',
-        'Livraison 7-10 jours'
-      ],
-      monthlyPayment: '10k DZ/mois',
+      name: t('pricing.plans.starter.name'),
+      price: t('pricing.plans.starter.price'),
+      description: t('pricing.plans.starter.description'),
+      features: t('pricing.plans.starter.features', { returnObjects: true }) as string[],
+      monthlyPayment: t('pricing.plans.starter.monthlyPayment'),
       popular: false
     },
     {
-      name: 'Pack Pro',
-      price: '80k - 150k DZ',
-      description: 'Site avancé ou e-commerce',
-      features: [
-        '10-15 pages ou e-commerce',
-        'Design semi-personnalisé',
-        'Hébergement performant',
-        'SEO optimisé',
-        'Intégration paiement',
-        'Blog + Google Analytics',
-        '2 mois support gratuit'
-      ],
-      monthlyPayment: '50k DZ/mois',
+      name: t('pricing.plans.pro.name'),
+      price: t('pricing.plans.pro.price'),
+      description: t('pricing.plans.pro.description'),
+      features: t('pricing.plans.pro.features', { returnObjects: true }) as string[],
+      monthlyPayment: t('pricing.plans.pro.monthlyPayment'),
       popular: true
     },
     {
-      name: 'Pack Sur Mesure',
-      price: '200k+ DZ',
-      description: 'Solution 100% personnalisée',
-      features: [
-        'Développement from scratch',
-        'Design UX/UI unique',
-        'Fonctionnalités sur mesure',
-        'Hébergement VPS sécurisé',
-        'Formation complète',
-        'SEO/SEA inclus',
-        '6 mois maintenance'
-      ],
-      monthlyPayment: '70k DZ/mois',
+      name: t('pricing.plans.custom.name'),
+      price: t('pricing.plans.custom.price'),
+      description: t('pricing.plans.custom.description'),
+      features: t('pricing.plans.custom.features', { returnObjects: true }) as string[],
+      monthlyPayment: t('pricing.plans.custom.monthlyPayment'),
       popular: false
     }
   ];
 
-  const calculatorServices = [
-    { id: 'website', name: 'Site vitrine', price: 40000 },
-    { id: 'ecommerce', name: 'Site e-commerce', price: 120000 },
-    { id: 'branding', name: 'Branding complet', price: 50000 },
-    { id: 'whatsapp', name: 'Formation WhatsApp Business', price: 30000 },
-    { id: 'seo', name: 'Optimisation SEO', price: 25000 }
+  const calculatorServices: CalculatorService[] = [
+    { id: 'website', name: t('pricing.calculator.services.website'), price: 40000 },
+    { id: 'ecommerce', name: t('pricing.calculator.services.ecommerce'), price: 120000 },
+    { id: 'branding', name: t('pricing.calculator.services.branding'), price: 50000 },
+    { id: 'whatsapp', name: t('pricing.calculator.services.whatsapp'), price: 30000 },
+    { id: 'seo', name: t('pricing.calculator.services.seo'), price: 25000 }
   ];
 
   const calculateTotal = () => {
@@ -113,27 +97,33 @@ export function PricingSection() {
   };
 
   return (
-    <section id="pricing" className="py-16 lg:py-24 bg-gradient-to-br from-purple-600 via-blue-600 to-orange-500">
+    <section id="pricing" className="relative py-20 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 overflow-hidden">
+      {/* Bulles colorées floues en arrière-plan */}
+      <div className="absolute inset-0 pointer-events-none -z-10">
+        <div className="absolute top-0 left-0 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-orange-500/10 rounded-full blur-3xl"></div>
+      </div>
       <div className="container mx-auto px-4 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
           <motion.h2 
-            className="font-montserrat font-bold text-3xl md:text-4xl lg:text-5xl text-white mb-6"
+            className="font-playfair font-bold text-3xl md:text-4xl lg:text-5xl text-white mb-6"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            Nos Tarifs Transparents
+            {t('pricing.title')}
           </motion.h2>
           <motion.p 
-            className="text-xl text-white/90 max-w-3xl mx-auto"
+            className="text-xl text-white/80 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            Choisissez l'offre qui correspond le mieux à vos besoins et votre budget
+            {t('pricing.subtitle')}
           </motion.p>
         </div>
 
@@ -142,136 +132,182 @@ export function PricingSection() {
           {pricingPlans.map((plan, index) => (
             <motion.div
               key={plan.name}
-              className={`relative rounded-2xl p-6 w-full ${
-                plan.popular ? 'bg-gradient-to-br from-blue-600 to-indigo-700 text-white shadow-xl' : 
-                plan.isDiscovery ? 'bg-gradient-to-br from-orange-50 to-white text-gray-900 shadow-lg' :
-                'bg-white text-gray-900 shadow-lg'
-              }`}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -8 }}
+              className={`relative rounded-2xl p-6 w-full bg-white/5 backdrop-blur-sm border border-white/10 shadow-lg hover:shadow-2xl transition-all duration-300 text-white ${plan.popular ? 'ring-2 ring-orange-400' : ''}`}
+              initial={{ opacity: 0, y: 50, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ 
+                duration: 0.6, 
+                delay: index * 0.1,
+                type: "spring",
+                stiffness: 100
+              }}
+              viewport={{ once: true, margin: "-50px" }}
+              whileHover={{ 
+                y: -8, 
+                scale: 1.03,
+                transition: { duration: 0.2 }
+              }}
             >
               {plan.popular && (
-                <span className="absolute top-0 right-0 bg-orange-500 text-white px-4 py-1 rounded-bl-lg rounded-tr-lg text-sm font-medium">
-                  Le plus populaire
-                </span>
+                <motion.span 
+                  className="absolute top-0 right-0 bg-orange-500 text-white px-4 py-1 rounded-bl-lg rounded-tr-lg text-sm font-medium"
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.5 + index * 0.1 }}
+                >
+                  {t('pricing.mostPopular')}
+                </motion.span>
               )}
               {plan.isDiscovery && (
-                <span className="absolute top-0 right-0 bg-orange-500 text-white px-4 py-1 rounded-bl-lg rounded-tr-lg text-sm font-medium">
-                  Offre de test
-                </span>
-              )}
-              <div className="text-center mb-6">
-                <h3 className="font-montserrat font-bold text-xl text-gray-800 mb-3">{plan.name}</h3>
-                <div className="text-3xl font-bold text-purple-600 mb-2">{plan.price}</div>
-                <p className="text-gray-600 text-sm">{plan.description}</p>
-              </div>
-              
-              <ul className="space-y-3 mb-6">
-                {plan.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-start">
-                    <i className={`fas fa-check ${plan.popular ? 'text-orange-300' : plan.isDiscovery ? 'text-orange-500' : 'text-green-500'} mr-2 mt-1 text-sm`}></i>
-                    <span className="text-sm">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-              
-              <div className="text-center">
-                <button 
-                  onClick={scrollToContact}
-                  className={`block w-full py-3 rounded-full font-semibold transition-all duration-300 ${
-                    plan.popular 
-                      ? 'bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white' 
-                      : plan.isDiscovery
-                        ? 'bg-gradient-to-r from-orange-400 to-orange-500 hover:from-orange-500 hover:to-orange-600 text-white'
-                        : 'bg-gray-100 text-gray-700 hover:bg-blue-600 hover:text-white'
-                  }`}
+                <motion.span 
+                  className="absolute top-0 right-0 bg-orange-500 text-white px-4 py-1 rounded-bl-lg rounded-tr-lg text-sm font-medium"
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.5 + index * 0.1 }}
                 >
-                  {plan.name === 'Pack Sur Mesure' ? 'Demander un devis' : 'Choisir ce pack'}
-                </button>
-                <p className="text-xs text-gray-600 mt-2">
-                  {plan.isDiscovery ? plan.monthlyPayment : `Paiement 3x: ${plan.monthlyPayment}`}
-                </p>
-              </div>
+                  {t('pricing.testOffer')}
+                </motion.span>
+              )}
+              <motion.div 
+                className="text-center mb-6"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.3 + index * 0.1 }}
+              >
+                <h3 className="font-playfair font-bold text-xl text-white mb-3">{plan.name}</h3>
+                <motion.div 
+                  className="text-3xl font-bold text-orange-400 mb-2"
+                  initial={{ scale: 0.8 }}
+                  animate={{ scale: 1 }}
+                  transition={{ 
+                    type: "spring",
+                    stiffness: 200,
+                    delay: 0.4 + index * 0.1 
+                  }}
+                >
+                  {plan.price}
+                </motion.div>
+                <p className="text-white/60 text-sm">{plan.description}</p>
+              </motion.div>
+              
+              <motion.ul 
+                className="space-y-3 mb-6"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.5 + index * 0.1 }}
+              >
+                {plan.features.map((feature, featureIndex) => (
+                  <motion.li 
+                    key={featureIndex} 
+                    className="flex items-start"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.6 + (index * 0.1) + (featureIndex * 0.1) }}
+                  >
+                    <motion.i 
+                      className={`fas fa-check text-orange-400 mr-2 mt-1 text-sm`}
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ 
+                        type: "spring",
+                        stiffness: 200,
+                        delay: 0.7 + (index * 0.1) + (featureIndex * 0.1)
+                      }}
+                    ></motion.i>
+                    <span className="text-sm text-white/80">{feature}</span>
+                  </motion.li>
+                ))}
+              </motion.ul>
+              
+              <motion.div 
+                className="text-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8 + index * 0.1 }}
+              >
+                <motion.button 
+                  onClick={scrollToContact}
+                  className="block w-full py-3 rounded-full font-semibold transition-all duration-300 bg-gradient-to-r from-orange-400 to-orange-500 hover:from-orange-500 hover:to-orange-600 text-white shadow-lg"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  {plan.name === t('pricing.plans.custom.name') ? t('pricing.requestQuote') : t('pricing.choosePlan')}
+                </motion.button>
+                <motion.p 
+                  className="text-xs text-white/60 mt-2"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.9 + index * 0.1 }}
+                >
+                  {plan.isDiscovery ? plan.monthlyPayment : t('pricing.monthlyPayment', { amount: plan.monthlyPayment })}
+                </motion.p>
+              </motion.div>
             </motion.div>
           ))}
         </div>
 
         {/* Special Offer */}
         <motion.div 
-          className="bg-gradient-to-r from-blue-600 to-green-500 rounded-2xl p-8 text-white text-center mb-16"
+          className="relative bg-gradient-to-r from-blue-700 via-purple-700 to-green-500 rounded-3xl p-10 text-white text-center mb-16 shadow-2xl border-2 border-white/20 overflow-hidden group mt-12"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h3 className="font-montserrat font-bold text-2xl mb-4">Offre Spéciale "Digital Pack"</h3>
-          <p className="text-lg mb-6">Site Pro + 3 mois réseaux sociaux + 1 vidéo promo</p>
-          <div className="flex items-center justify-center space-x-4 mb-6">
-            <span className="text-2xl line-through opacity-75">250k DZ</span>
-            <span className="text-4xl font-bold">200k DZ</span>
-          </div>
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-green-600/20 backdrop-blur-sm"></div>
+          <div className="relative z-10">
+            <h3 className="font-playfair font-bold text-3xl mb-4">{t('pricing.specialOffer.title')}</h3>
+            <p className="text-xl mb-6">{t('pricing.specialOffer.description')}</p>
           <button 
             onClick={scrollToContact}
-            className="inline-flex bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300"
+              className="px-8 py-3 rounded-full font-semibold transition-all duration-300 bg-white text-purple-600 hover:bg-purple-100 shadow-lg"
           >
-            Profiter de l'offre
+              {t('pricing.specialOffer.cta')}
           </button>
-          <p className="text-sm mt-4 opacity-90">Offre limitée à 5 clients/mois</p>
+          </div>
         </motion.div>
 
-        {/* Interactive Calculator */}
-        <motion.div 
-          className="bg-white/10 backdrop-blur-sm rounded-2xl p-8"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <h3 className="font-montserrat font-bold text-2xl text-center text-white mb-8">Calculateur de Budget</h3>
-          
-          <div className="max-w-2xl mx-auto">
-            {/* Service Selection */}
-            <div className="mb-8">
-              <label className="block text-lg font-semibold text-white mb-4">Sélectionnez vos services :</label>
+        {/* Calculator Section */}
+        <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 shadow-lg">
+          <h3 className="font-playfair font-bold text-2xl text-white mb-6 text-center">{t('pricing.calculator.title')}</h3>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <h4 className="text-white font-semibold mb-4">{t('pricing.calculator.selectServices')}</h4>
               <div className="space-y-4">
                 {calculatorServices.map((service) => (
-                  <label key={service.id} className="flex items-center cursor-pointer">
+                  <label key={service.id} className="flex items-center space-x-3 cursor-pointer">
                     <input 
                       type="checkbox"
                       checked={selectedServices.includes(service.id)}
                       onChange={() => toggleService(service.id)}
-                      className="mr-3 rounded border-gray-300 text-purple-600 focus:ring-purple-600"
+                      className="form-checkbox h-5 w-5 text-orange-500 rounded border-gray-300 focus:ring-orange-500"
                     />
-                    <span className="text-white">{service.name} ({service.price.toLocaleString()} DZ)</span>
+                    <span className="text-white">{service.name}</span>
                   </label>
                 ))}
               </div>
             </div>
-
-            {/* Total Display */}
-            <div className="bg-white rounded-xl p-6 text-center">
-              <p className="text-lg text-gray-600 mb-2">Total estimé :</p>
-              <div className="text-3xl font-bold text-purple-600 mb-4">{total.toLocaleString()} DZ</div>
-              <div className="text-sm text-gray-600 mb-4">Paiement 3x : {monthlyPayment.toLocaleString()} DZ/mois</div>
-              {selectedServices.length > 0 && (
-                <div className="text-sm text-gray-600 mb-4">
-                  Services sélectionnés: {selectedServices.map(id => 
-                    calculatorServices.find(s => s.id === id)?.name
-                  ).join(', ')}
+            <div className="bg-white/10 rounded-2xl p-6">
+              <h4 className="text-white font-semibold mb-4">{t('pricing.calculator.summary')}</h4>
+              <div className="space-y-4">
+                <div className="flex justify-between text-white">
+                  <span>{t('pricing.calculator.total')}</span>
+                  <span>{total.toLocaleString()} DZ</span>
                 </div>
-              )}
+                <div className="flex justify-between text-white/60 text-sm">
+                  <span>{t('pricing.calculator.monthlyPayment')}</span>
+                  <span>{monthlyPayment.toLocaleString()} DZ</span>
+                </div>
               <button 
                 onClick={scrollToContact}
-                className="btn-primary text-white px-6 py-2 rounded-full font-semibold"
+                  className="w-full py-3 rounded-full font-semibold transition-all duration-300 bg-gradient-to-r from-orange-400 to-orange-500 hover:from-orange-500 hover:to-orange-600 text-white shadow-lg mt-4"
               >
-                Demander un devis personnalisé
+                  {t('pricing.calculator.cta')}
               </button>
+              </div>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
