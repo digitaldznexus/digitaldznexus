@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+import colors from 'tailwindcss/colors'
+
 export default {
   content: [
     "./index.html",
@@ -22,10 +24,10 @@ export default {
         'noir': '#111111',
         'gris-clair': '#F5F7FA',
         'bleu': '#2563EB',
-        'orange': '#F97316',
         'gris-texte': '#4B5563',
+        orange: colors.orange, // Ajoute toute la palette orange de Tailwind
       },
     },
   },
   plugins: [],
-} 
+}
