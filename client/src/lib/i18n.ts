@@ -239,7 +239,7 @@ const resources = {
           },
           email: {
             title: "Email",
-            details: "contact@digitalnexus.dz"
+            details: "digitaldznexus@gmail.com"
           }
         },
         form: {
@@ -269,7 +269,7 @@ const resources = {
           description: "Description du projet",
           descriptionPlaceholder: "Décrivez votre projet en quelques mots...",
           contactPreference: "Préférence de contact",
-          selectContactPreference: "Sélectionnez une préférence",
+          selectContactMethods: "Sélectionnez une méthode de contact",
           contactMethods: {
             email: "Email",
             phone: "Téléphone",
@@ -280,12 +280,15 @@ const resources = {
           summary: "Récapitulatif",
           previous: "Précédent",
           submit: "Envoyer",
+          success: "Votre demande a bien été envoyée !",
+          error: "Une erreur s'est produite. Veuillez réessayer.",
           errors: {
             firstName: "Ce champ est requis",
             lastName: "Ce champ est requis",
             email: "Email invalide",
             phone: "Ce champ est requis",
-            projectType: "Veuillez sélectionner un type de projet"
+            projectType: "Veuillez sélectionner un type de projet",
+            contactMethods: "Veuillez sélectionner une méthode de contact"
           }
         }
       },
@@ -622,7 +625,7 @@ const resources = {
           description: "وصف المشروع",
           descriptionPlaceholder: "Décrivez votre projet en quelques mots...",
           contactPreference: "طريقة التواصل",
-          selectContactPreference: "اختر طريقة التواصل",
+          selectContactMethods: "اختر طريقة التواصل",
           contactMethods: {
             email: "البريد الإلكتروني",
             phone: "الهاتف",
@@ -633,6 +636,8 @@ const resources = {
           summary: "ملخص",
           previous: "السابق",
           submit: "إرسال طلبي",
+          success: "Votre demande a bien été envoyée !",
+          error: "Une erreur s'est produite. Veuillez réessayer.",
           errors: {
             firstName: "هذا الحقل مطلوب",
             lastName: "هذا الحقل مطلوب",
@@ -886,7 +891,7 @@ const resources = {
           },
           email: {
             title: "Email",
-            details: "contact@digitalnexus.dz"
+            details: "digitaldznexus@gmail.com"
           }
         },
         form: {
@@ -916,7 +921,7 @@ const resources = {
           description: "Project Description",
           descriptionPlaceholder: "Describe your project in a few words...",
           contactPreference: "Contact Preference",
-          selectContactPreference: "Select a preference",
+          selectContactMethods: "Select a contact method",
           contactMethods: {
             email: "Email",
             phone: "Phone",
@@ -927,6 +932,8 @@ const resources = {
           summary: "Summary",
           previous: "Previous",
           submit: "Send",
+          success: "Votre demande a bien été envoyée !",
+          error: "Une erreur s'est produite. Veuillez réessayer.",
           errors: {
             firstName: "This field is required",
             lastName: "This field is required",

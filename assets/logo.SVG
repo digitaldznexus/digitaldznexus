@@ -1,0 +1,20 @@
+<svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="160" height="160" rx="32" fill="transparent"/>
+  <g>
+    <circle cx="80" cy="80" r="65" stroke="#E5E7EB" stroke-width="3" fill="none"/>
+    <path d="M80 15 v20" stroke="#E5E7EB" stroke-width="2"/>
+    <path d="M145 80 h-20" stroke="#E5E7EB" stroke-width="2"/>
+    <path d="M80 145 v-20" stroke="#E5E7EB" stroke-width="2"/>
+    <path d="M15 80 h20" stroke="#E5E7EB" stroke-width="2"/>
+    <circle cx="80" cy="15" r="4" fill="#F97316"/>
+    <circle cx="145" cy="80" r="4" fill="#F97316"/>
+    <circle cx="80" cy="145" r="4" fill="#F97316"/>
+    <circle cx="15" cy="80" r="4" fill="#F97316"/>
+    <linearGradient id="dn-gradient" x1="40" y1="40" x2="120" y2="120" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1e3a8a"/>
+      <stop offset="1" stop-color="#a21caf"/>
+    </linearGradient>
+    <text x="40" y="110" font-family="Montserrat, Arial, sans-serif" font-size="72" font-weight="bold" fill="url(#dn-gradient)" letter-spacing="2">D</text>
+    <text x="90" y="110" font-family="Montserrat, Arial, sans-serif" font-size="72" font-weight="bold" fill="url(#dn-gradient)" letter-spacing="2">N</text>
+  </g>
+</svg>

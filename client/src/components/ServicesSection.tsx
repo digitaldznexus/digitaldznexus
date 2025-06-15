@@ -41,7 +41,7 @@ export function ServicesSection() {
       icon: 'fas fa-paint-brush',
       status: t('services.branding.status'),
       gradient: 'from-cyan-500 to-emerald-500',
-      image: 'https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=600&q=80'
+      image: 'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80'
     },
     {
       title: 'Marketing Digital',
@@ -49,7 +49,7 @@ export function ServicesSection() {
       icon: 'fas fa-bullhorn',
       gradient: 'from-orange-500 to-yellow-500',
       price: 'À partir de 25 000 DZ',
-      image: 'https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80'
+      image: 'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=600&q=80'
     },
     {
       title: 'SEO & Analytics',
@@ -177,7 +177,14 @@ export function ServicesSection() {
           >
             {services.map((service, index) => (
               <SwiperSlide key={index}>
-                <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 group shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden">
+                <motion.div
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  whileHover={{ scale: 1.04, boxShadow: '0 8px 32px 0 rgba(80,80,180,0.15)' }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 group shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
+                >
                   <img src={service.image} alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover object-center opacity-40 blur-sm scale-110 group-hover:scale-125 transition-transform duration-700 z-0" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10" />
                   <div className="relative z-20">
@@ -200,7 +207,7 @@ export function ServicesSection() {
                       </p>
                     )}
                   </div>
-                </div>
+                </motion.div>
               </SwiperSlide>
             ))}
           </Swiper>
@@ -208,8 +215,13 @@ export function ServicesSection() {
         {/* Grille Desktop */}
         <div className="hidden lg:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <div
+            <motion.div
               key={index}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ scale: 1.04, boxShadow: '0 8px 32px 0 rgba(80,80,180,0.15)' }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
               className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 group shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
             >
               <img src={service.image} alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover object-center opacity-40 blur-sm scale-110 group-hover:scale-125 transition-transform duration-700 z-0" />
@@ -234,7 +246,7 @@ export function ServicesSection() {
                   </p>
                 )}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

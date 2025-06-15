@@ -6,6 +6,7 @@ import { Pagination, Navigation, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import { PackContactModal } from './PackContactModal';
 
 interface PricingPlan {
   name: string;
@@ -26,6 +27,8 @@ interface CalculatorService {
 export function PricingSection() {
   const { t } = useTranslation();
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalPack, setModalPack] = useState<string>('');
 
   const pricingPlans: PricingPlan[] = [
     {
@@ -98,6 +101,7 @@ export function PricingSection() {
 
   return (
     <section id="pricing" className="relative py-20 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 overflow-hidden">
+      <PackContactModal open={modalOpen} onClose={() => setModalOpen(false)} packName={modalPack} />
       {/* Bulles colorées floues en arrière-plan */}
       <div className="absolute inset-0 pointer-events-none -z-10">
         <div className="absolute top-0 left-0 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl"></div>
@@ -226,7 +230,7 @@ export function PricingSection() {
                 transition={{ delay: 0.8 + index * 0.1 }}
               >
                 <motion.button 
-                  onClick={scrollToContact}
+                  onClick={() => { setModalPack(plan.name); setModalOpen(true); }}
                   className="block w-full py-3 rounded-full font-semibold transition-all duration-300 bg-gradient-to-r from-orange-400 to-orange-500 hover:from-orange-500 hover:to-orange-600 text-white shadow-lg"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -240,6 +244,9 @@ export function PricingSection() {
                   transition={{ delay: 0.9 + index * 0.1 }}
                 >
                   {plan.isDiscovery ? plan.monthlyPayment : t('pricing.monthlyPayment', { amount: plan.monthlyPayment })}
+                  {!plan.isDiscovery && plan.monthlyPayment && (
+                    <span className="text-xs text-orange-300 ml-1">(sous conditions)</span>
+                  )}
                 </motion.p>
               </motion.div>
             </motion.div>
@@ -257,13 +264,17 @@ export function PricingSection() {
           <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-green-600/20 backdrop-blur-sm"></div>
           <div className="relative z-10">
             <h3 className="font-playfair font-bold text-3xl mb-4">{t('pricing.specialOffer.title')}</h3>
-            <p className="text-xl mb-6">{t('pricing.specialOffer.description')}</p>
-          <button 
-            onClick={scrollToContact}
+            <p className="text-xl mb-2">{t('pricing.specialOffer.description')}</p>
+            <div className="mb-6 flex flex-col items-center justify-center">
+              <span className="text-lg text-white/70 line-through">250 000 DZ</span>
+              <span className="text-3xl font-bold text-orange-400">200 000 DZ</span>
+            </div>
+            <button 
+              onClick={() => { setModalPack(t('pricing.specialOffer.title')); setModalOpen(true); }}
               className="px-8 py-3 rounded-full font-semibold transition-all duration-300 bg-white text-purple-600 hover:bg-purple-100 shadow-lg"
-          >
+            >
               {t('pricing.specialOffer.cta')}
-          </button>
+            </button>
           </div>
         </motion.div>
 
@@ -299,10 +310,10 @@ export function PricingSection() {
                   <span>{monthlyPayment.toLocaleString()} DZ</span>
                 </div>
               <button 
-                onClick={scrollToContact}
-                  className="w-full py-3 rounded-full font-semibold transition-all duration-300 bg-gradient-to-r from-orange-400 to-orange-500 hover:from-orange-500 hover:to-orange-600 text-white shadow-lg mt-4"
+                onClick={() => { setModalPack('Calculateur de Budget'); setModalOpen(true); }}
+                className="w-full py-3 rounded-full font-semibold transition-all duration-300 bg-gradient-to-r from-orange-400 to-orange-500 hover:from-orange-500 hover:to-orange-600 text-white shadow-lg mt-4"
               >
-                  {t('pricing.calculator.cta')}
+                {t('pricing.calculator.cta')}
               </button>
               </div>
             </div>

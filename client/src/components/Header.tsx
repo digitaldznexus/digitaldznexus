@@ -30,12 +30,12 @@ export function Header() {
     <header className={`fixed top-0 left-0 right-0 z-50 bg-[#111111]/95 backdrop-blur-md border-b border-gray-800 transition-all duration-300 ${isScrolled ? 'shadow-lg' : ''}`}>
       <nav className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-[#F97316] to-[#2563EB] rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">DN</span>
-            </div>
-            <span className="font-bold text-xl text-white">Digital Nexus</span>
+           {/* Logo */}
+          <Link href="/" className="flex items-center space-x-3 group">
+            <span className="w-10 h-10 flex items-center justify-center rounded-lg bg-gradient-to-br from-blue-700 to-purple-600">
+              <span className="text-xl font-extrabold text-white leading-none">DN</span>
+            </span>
+            <span className="text-base font-bold text-orange-400 tracking-widest ml-1">DIGITAL NEXUS</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -57,7 +57,7 @@ export function Header() {
             </Link>
             <Link
               href="/contact"
-              className="ml-4 px-6 py-2 rounded-full bg-gradient-to-r from-orange-400 to-orange-500 text-white font-bold shadow-lg hover:from-orange-500 hover:to-yellow-300 transition-all duration-300 border-2 border-white/10"
+              className="ml-0 px-6 py-2 rounded-full bg-gradient-to-r from-orange-400 to-orange-500 text-white font-bold shadow-lg hover:from-orange-500 hover:to-yellow-300 transition-all duration-300 border-2 border-white/10"
             >
               {t('nav.getQuote').toUpperCase()}
             </Link>

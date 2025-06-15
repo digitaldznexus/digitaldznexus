@@ -38,11 +38,11 @@ export function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="flex flex-col items-center justify-center mb-6 group">
-              <div className="w-12 h-12 bg-gradient-to-br from-purple-600 to-orange-500 rounded-xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
-                <span className="font-playfair font-bold text-xl">DN</span>
+            <div className="flex items-center justify-center mb-6 group">
+              <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-gradient-to-br from-blue-700 to-purple-600">
+                <span className="text-2xl font-extrabold text-white leading-none">DN</span>
               </div>
-              <span className="font-playfair font-bold text-2xl mt-2">Digital Nexus</span>
+              <span className="text-lg font-bold text-orange-400 tracking-widest ml-3">DIGITAL NEXUS</span>
             </div>
             <p className="font-inter text-gray-400 mb-8 leading-relaxed">
               {t('footer.description')}
@@ -132,10 +132,10 @@ export function Footer() {
                     rel="noopener noreferrer" 
                     className="font-inter text-emerald-400 hover:text-orange-400 transition-colors flex items-center group"
                   >
-                    <span className="w-2 h-2 bg-gradient-to-br from-purple-600 to-orange-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                  <span className="w-2 h-2 bg-gradient-to-br from-purple-600 to-orange-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
                     {link.label}
-                  </a>
-                </li>
+                </a>
+              </li>
               ))}
             </ul>
           </motion.div>

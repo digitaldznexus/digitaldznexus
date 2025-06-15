@@ -39,14 +39,14 @@ export function LanguageSwitcher() {
         <ul className="absolute right-0 mt-2 w-28 bg-white/80 backdrop-blur-md rounded-2xl shadow-2xl border border-white/30 py-2 animate-slide-up origin-top-right" role="listbox" style={{zIndex:99}}>
           {languages.map((lang) => (
             <li key={lang.code}>
-              <button
+      <button
                 onClick={() => switchLanguage(lang.code)}
                 className={`w-full flex items-center gap-2 px-4 py-2 text-left rounded-xl transition-all font-inter text-base hover:bg-purple-100/80 hover:text-purple-700 ${currentLang === lang.code ? 'bg-purple-200/80 font-bold text-purple-900' : 'text-gray-800'}`}
                 role="option"
                 aria-selected={currentLang === lang.code}
-              >
+      >
                 <span>{lang.label}</span>
-              </button>
+      </button>
             </li>
           ))}
         </ul>

@@ -8,9 +8,19 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 // Import required modules
 import { Pagination, Navigation, Autoplay } from 'swiper/modules';
+import { useEffect, useState } from 'react';
+import { PopupInfo } from './PopupInfo';
 
 export function TestimonialsSection() {
   const { t } = useTranslation();
+  const [showPopup, setShowPopup] = useState(false);
+
+  useEffect(() => {
+    if (!localStorage.getItem('testimonials_popup_shown')) {
+      setShowPopup(true);
+      localStorage.setItem('testimonials_popup_shown', '1');
+    }
+  }, []);
 
   const testimonials = [
     {
@@ -41,6 +51,13 @@ export function TestimonialsSection() {
 
   return (
     <section id="testimonials" className="relative py-20 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 overflow-hidden">
+      <PopupInfo
+        open={showPopup}
+        onClose={() => setShowPopup(false)}
+        message={
+          "Ces réalisations et témoignages sont fictifs. Soyez les premiers à tester nos services et vous serez surpris du résultat et des tarifs spéciaux pour les premiers clients."
+        }
+      />
       {/* Bulles colorées floues en arrière-plan */}
       <div className="absolute inset-0 pointer-events-none -z-10">
         <div className="absolute top-0 left-0 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl"></div>

@@ -24,7 +24,7 @@ const contactSchema = z.object({
   budget: z.string().optional(),
   timeline: z.string().optional(),
   description: z.string().optional(),
-  contactMethods: z.array(z.string()).optional(),
+  contactMethods: z.string().min(1, 'Veuillez sélectionner une méthode de contact'),
   availability: z.string().optional()
 });
 
@@ -46,36 +46,17 @@ export function ContactSection() {
     phone: '',
     message: ''
   });
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   const {
     register,
     handleSubmit,
     formState: { errors },
     setValue,
-    watch
+    watch,
+    reset
   } = useForm<ContactForm>({
     resolver: zodResolver(contactSchema)
-  });
-
-  const submitContactMutation = useMutation({
-    mutationFn: async (data: ContactForm) => {
-      // Simulation d'envoi (toujours succès)
-      await new Promise(res => setTimeout(res, 800));
-      return { message: 'Votre demande a bien été envoyée !' };
-    },
-    onSuccess: (data) => {
-      toast({
-        title: "Succès !",
-        description: data.message,
-      });
-      // Reset form or redirect
-    },
-    onError: () => {
-      toast({
-        title: "Succès !",
-        description: "Votre demande a bien été envoyée !",
-      });
-    }
   });
 
   const handleProjectTypeSelect = (type: ProjectType) => {
@@ -88,10 +69,55 @@ export function ContactSection() {
     setStep(3);
   };
 
-  const onSubmit = (data: ContactForm) => {
-    submitContactMutation.mutate(data);
+  const onSubmit = async (data: ContactForm) => {
+    console.log('SUBMIT DATA', data);
+    setSubmitStatus('idle');
+    const formData = new FormData();
+    formData.append('firstName', data.firstName);
+    formData.append('lastName', data.lastName);
+    formData.append('email', data.email);
+    formData.append('phone', data.phone);
+    if (data.company) formData.append('company', data.company);
+    formData.append('projectType', data.projectType);
+    if (data.budget) formData.append('budget', data.budget);
+    if (data.timeline) formData.append('timeline', data.timeline);
+    if (data.description) formData.append('description', data.description);
+    if (data.contactMethods) formData.append('contactMethods', data.contactMethods);
+    if (data.availability) formData.append('availability', data.availability);
+    // Champ anti-spam
+    formData.append('_gotcha', '');
+  
+    try {
+      const response = await fetch('https://formspree.io/f/xgvyyvee', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          Accept: 'application/json',
+        },
+      });
+      if (response.ok) {
+        toast({
+          title: t('common.success'),
+          description: t('contact.form.success') || 'Votre demande a bien été envoyée !',
+        });
+        setStep(1);
+        reset();
+        setSubmitStatus('success');
+      } else {
+        toast({
+          title: t('common.error'),
+          description: t('contact.form.error') || "Une erreur s'est produite. Veuillez réessayer.",
+        });
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      toast({
+        title: t('common.error'),
+        description: t('contact.form.error') || "Une erreur s'est produite. Veuillez réessayer.",
+      });
+      setSubmitStatus('error');
+    }
   };
-
   const contactInfo = [
     {
       icon: "fas fa-map-marker-alt",
@@ -144,22 +170,40 @@ export function ContactSection() {
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8 mb-16">
-          {contactInfo.map((info, index) => (
-            <motion.div 
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center group hover:bg-white/10 transition-all duration-300"
-            >
-              <div className={`w-16 h-16 mx-auto mb-6 rounded-xl bg-gradient-to-r ${info.gradient} flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300`}>
-                <i className={`${info.icon} text-2xl text-white`}></i>
-              </div>
-              <h3 className="font-playfair text-xl text-white mb-4">{info.title}</h3>
-              <p className="font-inter text-white/60">{info.details}</p>
-            </motion.div>
-          ))}
+          {contactInfo.map((info, index) => {
+            let content;
+            if (info.icon === "fas fa-phone") {
+              content = (
+                <a href={`tel:${info.details.replace(/\s+/g, '')}`} className="text-orange-400 hover:underline">{info.details}</a>
+              );
+            } else if (info.icon === "fas fa-envelope") {
+              content = (
+                <a href={`mailto:${info.details}`} className="text-orange-400 hover:underline">{info.details}</a>
+              );
+            } else if (info.icon === "fas fa-map-marker-alt") {
+              content = (
+                <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(info.details)}`} target="_blank" rel="noopener noreferrer" className="text-orange-400 hover:underline">{info.details}</a>
+              );
+            } else {
+              content = info.details;
+            }
+            return (
+              <motion.div 
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
+                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center group hover:bg-white/10 transition-all duration-300"
+              >
+                <div className={`w-16 h-16 mx-auto mb-6 rounded-xl bg-gradient-to-r ${info.gradient} flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300`}>
+                  <i className={`${info.icon} text-2xl text-white`}></i>
+                </div>
+                <h3 className="font-playfair text-xl text-white mb-4">{info.title}</h3>
+                <p className="font-inter text-white/60">{content}</p>
+              </motion.div>
+            );
+          })}
         </div>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -169,7 +213,19 @@ export function ContactSection() {
           className="max-w-4xl mx-auto bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 lg:p-12"
         >
           <form onSubmit={handleSubmit(onSubmit)}>
-            {/* Stepper */}
+            {/* Champ caché anti-spam */}
+            <input type="text" name="_gotcha" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />    {/* Stepper */}
+            {/* Message de succès ou d'échec */}
+            {submitStatus === 'success' && (
+              <div className="mb-4 text-green-400 font-semibold text-center">
+                {t('contact.form.success') || 'Votre demande a bien été envoyée !'}
+              </div>
+            )}
+            {submitStatus === 'error' && (
+              <div className="mb-4 text-red-400 font-semibold text-center">
+                {t('contact.form.error') || "Une erreur s'est produite. Veuillez réessayer."}
+              </div>
+            )}
             <div className="flex justify-center mb-8 gap-4">
               {[1,2,3].map((s) => (
                 <div key={s} className={`w-8 h-8 flex items-center justify-center rounded-full font-bold text-lg border-2 transition-all duration-300
@@ -242,17 +298,22 @@ export function ContactSection() {
               <motion.div initial={{opacity:0, y:20}} animate={{opacity:1, y:0}} transition={{duration:0.5}} className="space-y-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div>
-                    <label className="font-inter text-white mb-3 block">{t('contact.form.contactMethods')}</label>
+                    <label className="font-inter text-white mb-3 block">{t('contact.form.contactPreference')}</label>
                     <select
-                      {...register("contactMethods")}
+                      {...register("contactMethods", { required: true })}
                       className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white font-inter focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 transition-all appearance-none"
                       style={{ minHeight: '48px', colorScheme: 'dark' }}
                     >
-                      <option value="" className="text-gray-400">{t('contact.form.selectContactMethods')}</option>
-                      <option value="email" style={{color:'#F97316'}}>{t('contact.form.contactMethods.email')}</option>
-                      <option value="phone" style={{color:'#2563EB'}}>{t('contact.form.contactMethods.phone')}</option>
-                      <option value="whatsapp" style={{color:'#059669'}}>{t('contact.form.contactMethods.whatsapp')}</option>
+                      <option value="">{t('contact.form.selectContactMethods')}</option>
+                      <option value="email">{t('contact.form.contactMethods.email')}</option>
+                      <option value="phone">{t('contact.form.contactMethods.phone')}</option>
+                      <option value="whatsapp">{t('contact.form.contactMethods.whatsapp')}</option>
                     </select>
+                    {errors.contactMethods && (
+                      <span className="text-orange-400 text-sm mt-2 block">
+                        {t('contact.form.errors.contactMethods') || errors.contactMethods.message}
+                      </span>
+                    )}
                   </div>
                   <div>
                     <label htmlFor="availability" className="font-inter text-white mb-3 block">{t('contact.form.availability')}</label>
@@ -269,7 +330,7 @@ export function ContactSection() {
                     <li><b>{t('contact.form.projectType')}:</b> {watch('projectType')}</li>
                     <li><b>{t('contact.form.budget')}:</b> {watch('budget')}</li>
                     <li><b>{t('contact.form.description')}:</b> {watch('description')}</li>
-                    <li><b>{t('contact.form.contactMethods')}:</b> {watch('contactMethods') || ''}</li>
+                    <li><b>{t('contact.form.contactPreference')}:</b> {watch('contactMethods') ? t(`contact.form.contactMethods.${watch('contactMethods')}`) : ''}</li>
                     <li><b>{t('contact.form.availability')}:</b> {watch('availability')}</li>
                   </ul>
                 </div>

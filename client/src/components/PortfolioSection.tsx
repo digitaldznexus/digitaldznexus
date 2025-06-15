@@ -1,10 +1,19 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { PopupInfo } from './PopupInfo';
 
 export function PortfolioSection() {
   const { t } = useTranslation();
   const [activeFilter, setActiveFilter] = useState('all');
+  const [showPopup, setShowPopup] = useState(false);
+
+  useEffect(() => {
+    if (!localStorage.getItem('portfolio_popup_shown')) {
+      setShowPopup(true);
+      localStorage.setItem('portfolio_popup_shown', '1');
+    }
+  }, []);
 
   const projects = [
     {
@@ -70,6 +79,13 @@ export function PortfolioSection() {
 
   return (
     <section id="portfolio" className="relative py-20 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 overflow-hidden">
+      <PopupInfo
+        open={showPopup}
+        onClose={() => setShowPopup(false)}
+        message={
+          "Ces réalisations et témoignages sont fictifs. Soyez les premiers à tester nos services et vous serez surpris du résultat et des tarifs spéciaux pour les premiers clients."
+        }
+      />
       {/* Bulles colorées floues en arrière-plan */}
       <div className="absolute inset-0 pointer-events-none -z-10">
         <div className="absolute top-0 left-0 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl"></div>
